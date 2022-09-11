@@ -1,0 +1,47 @@
+{{!< chatwindow}}
+
+
+    <div class="registrationwindow">
+    <h1>Create new user</h1>
+    <form class="registrationform">
+
+    {{>"UIComponent/inputform/inputAuth" 
+    name="first_name"
+    type="text"
+    description="Input your First name"}}
+    
+    {{>"UIComponent/inputform/inputAuth" 
+    name="second_name"
+    type="text"
+    description="Input your Second name"}}
+
+    {{>"UIComponent/inputform/inputAuth" 
+    name="login"
+    type="text"
+    description="Input your login"}}
+
+    {{>"UIComponent/inputform/inputAuth" 
+    name="email"
+    type="text"
+    description="Input your email"}}
+
+    {{>"UIComponent/inputform/inputAuth" 
+    name="password"
+    type="password"
+    description="Input your password"}}
+
+    {{>"UIComponent/inputform/inputAuth" 
+    name="phone"
+    type="text"
+    description="Input your phone"}}
+
+    <div class="registrationwindowButton">
+    {{>"UIComponent/buttonAccept" value="Registration" type="submit" }}
+    
+    <a href="./authpage.hbs">Sign in</a>
+    </div>
+    
+</form>
+</div>
+
+

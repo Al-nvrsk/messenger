@@ -1,0 +1,8 @@
+.userinfopage {
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed white;
+}

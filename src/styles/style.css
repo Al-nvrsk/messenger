@@ -1,0 +1,13 @@
+@import '../layouts/chatwindow.css';
+
+@import '../partials/UIComponent/buttonAccept.css';
+
+@import '../pages/authpage.css';
+
+@import '../partials/UIComponent/inputform/inputAuth.css';
+
+@import '../pages/registrationpage.css';
+
+@import '../partials/UIComponent/userstat/userinfo.css';
+
+@import '../pages/UserInfoPage.css'

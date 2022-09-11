@@ -1,0 +1,9 @@
+.mainwindow {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(45, 45, 45);
+    color: #06952E;
+    height: auto;
+    width: auto;
+}

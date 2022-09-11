@@ -1,0 +1,9 @@
+.userinfo {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    width: 300px;
+    
+    border: 1px solid white;
+}
