@@ -1,0 +1,27 @@
+@import '../layouts/chatwindow.css';
+
+
+/* UI Components */
+@import '../partials/UIComponent/buttons/buttonAccept.css';
+
+@import '../partials/UIComponent/inputform/inputAuth.css';
+
+@import '../partials/UIComponent/userstat/userinfo.css';
+
+@import '../partials/UIComponent/buttons/buttonReturn.css';
+
+@import '../partials/UIComponent/buttons/buttonReject.css';
+
+
+/* Pages */
+
+@import '../pages/index.css';
+
+@import '../pages/authpage.css';
+
+@import '../pages/registrationpage.css';
+
+@import '../pages/UserInfoPage.css';
+
+@import '../pages/ChatPage.css'
+

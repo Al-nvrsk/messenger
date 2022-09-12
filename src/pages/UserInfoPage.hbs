@@ -1,0 +1,48 @@
+{{!< chatwindow}}
+
+<div class="mainUserInfoPage">
+    {{>"UIComponent/buttons/buttonReturn" adress="authpage.hbs" }}
+    <a href="authpage.hbs" >Back to Sign in</a>
+<div class="userinfopage">
+    <img src="../assets/default user.png" alt="avatar">
+    
+    {{>"UIComponent/userstat/userinfo" 
+        name="Email"
+        value="test@text.ru"}}
+
+    {{>"UIComponent/userstat/userinfo" 
+        name="First_Name"
+        value="Tinki"}}
+
+    {{>"UIComponent/userstat/userinfo" 
+        name="Second_Name"
+        value="Vinki"}}
+
+    {{>"UIComponent/userstat/userinfo" 
+        name="Display_name"
+        value="Mr.Po"}}
+
+    {{>"UIComponent/userstat/userinfo" 
+        name="Login"
+        value="Dipsy"}}
+
+    {{>"UIComponent/userstat/userinfo" 
+        name="email"
+        value="mail@email.ru"}}
+
+    {{>"UIComponent/userstat/userinfo" 
+        name="Phone"
+        value="5-555-55-55"}}
+
+    {{!-- <div>oldPassword</div>
+    <div>newPassword</div> --}}
+
+</div>
+<div class="userinfopage_button">
+    <button>Change info</button>
+    <button>Change password</button>
+    {{>"UIComponent/buttons/buttonReject" 
+        value="Exit"}}
+    
+</div>
+</div>

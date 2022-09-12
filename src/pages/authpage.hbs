@@ -1,0 +1,26 @@
+{{!< chatwindow}}
+
+
+<div class="authwindow">
+    <h1>Sign in</h1>
+    <form class="authform">
+    
+    {{>"UIComponent/inputform/inputAuth" 
+    name="login"
+    type="text"
+    description="Input your login"}}
+    
+    {{>"UIComponent/inputform/inputAuth" 
+    name="password"
+    type="password"
+    description="Input your password"}} 
+    <div class="authPageButton">
+    {{>"UIComponent/buttons/buttonAccept" value="Enter" type="submit" }}
+    <a class="adress" href="./registrationpage.hbs">Create account</a>
+    </div>
+</form>
+</div>
+
+<a class="adress" href="./UserInfoPage.hbs">User Info</a>
+<a class="adress" href="./ChatPage.hbs">Go to ChatPage</a>
+

@@ -1,0 +1,30 @@
+.mainUserInfoPage {
+    min-width: 600px;
+    max-width: 80%;
+    margin: auto;
+}
+
+.mainUserInfoPage a{
+    margin: 35px 35px ;
+    display: flex;
+    height: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.userinfopage {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+.userinfopage_button {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 25px;
+    width: 60%;
+}
