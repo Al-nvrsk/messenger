@@ -13,4 +13,4 @@ Installation:
     - npm run build - needed for launch product build
 
 
-The app is working on https://631f10079e1ad20471a7b0e1--sparkly-peony-4ec6bf.netlify.app/
+The app is working on https://practicummessenger.netlify.app/
