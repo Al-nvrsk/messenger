@@ -1,48 +1,25 @@
 {{!< chatwindow}}
 
-<div class="mainUserInfoPage">
-    {{>"UIComponent/buttons/buttonReturn" adress="authpage.hbs" }}
-    <a href="authpage.hbs" >Back to Sign in</a>
-<div class="userinfopage">
-    <img src="../assets/default user.png" alt="avatar">
+<main>
+<div class = "mainUserInfoPage">
+    {{> "UIComponent/buttons/buttonReturn" adress = "authpage.hbs" }}
+        <div class = "userinfopage">
+        <img src = "../assets/default user.png" alt = "avatar">
     
-    {{>"UIComponent/userstat/userinfo" 
-        name="Email"
-        value="test@text.ru"}}
+        {{#each userInfoPageStatus}}
+            {{> "UIComponent/userStat/userInfo" 
+                name = this.name
+                value = this.value}}
+        {{/each}}
+    </div>
 
-    {{>"UIComponent/userstat/userinfo" 
-        name="First_Name"
-        value="Tinki"}}
-
-    {{>"UIComponent/userstat/userinfo" 
-        name="Second_Name"
-        value="Vinki"}}
-
-    {{>"UIComponent/userstat/userinfo" 
-        name="Display_name"
-        value="Mr.Po"}}
-
-    {{>"UIComponent/userstat/userinfo" 
-        name="Login"
-        value="Dipsy"}}
-
-    {{>"UIComponent/userstat/userinfo" 
-        name="email"
-        value="mail@email.ru"}}
-
-    {{>"UIComponent/userstat/userinfo" 
-        name="Phone"
-        value="5-555-55-55"}}
-
-    {{!-- <div>oldPassword</div>
-    <div>newPassword</div> --}}
-
-</div>
-<div class="userinfopage_button">
-    <button>Change info</button>
-    <button>Change password</button>
-    {{>"UIComponent/buttons/buttonReject" 
-        value="Exit"}}
+    <div class = "userInfoPageBlock">
+        {{#each userInfoPageButtons}}
+            <button class="userInfoPageButtons"> Change {{this}} </button>
+        {{/each}}
     
+        {{> "UIComponent/buttons/buttonReject" value = "Exit" type = "button"}}
+        {{> "tempNavigation" adress = "./index.hbs" value = "Go to Content list"}}
+    </div>
 </div>
-</div>
+</main>

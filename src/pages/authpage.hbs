@@ -1,26 +1,21 @@
 {{!< chatwindow}}
 
+<main>
+<div class = "authwindow">
+    <h1> Sign in </h1>
+    <form class = "authform">
+        {{#each userAuth}}
+            {{> "UIComponent/inputForm/inputAuth" 
+                name = this.name
+                type = this.type
+                description = this.description}}
+        {{/each}}
 
-<div class="authwindow">
-    <h1>Sign in</h1>
-    <form class="authform">
-    
-    {{>"UIComponent/inputform/inputAuth" 
-    name="login"
-    type="text"
-    description="Input your login"}}
-    
-    {{>"UIComponent/inputform/inputAuth" 
-    name="password"
-    type="password"
-    description="Input your password"}} 
-    <div class="authPageButton">
-    {{>"UIComponent/buttons/buttonAccept" value="Enter" type="submit" }}
-    <a class="adress" href="./registrationpage.hbs">Create account</a>
-    </div>
-</form>
+        <div class = "authPageButton">
+            {{> "UIComponent/buttons/buttonAccept" value = "Enter" type = "submit" }}
+            {{> "tempNavigation" adress = "./registrationpage.hbs" value = "Create account"}}
+            {{> "tempNavigation" adress = "./index.hbs" value = "Go to Content list"}}
+        </div>
+    </form>
 </div>
-
-<a class="adress" href="./UserInfoPage.hbs">User Info</a>
-<a class="adress" href="./ChatPage.hbs">Go to ChatPage</a>
-
+</main>

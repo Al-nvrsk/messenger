@@ -21,10 +21,33 @@
     align-items: center;
 }
 
-.userinfopage_button {
+.userInfoPageBlock {
     display: flex;
     flex-direction: column;
     margin: auto;
     margin-top: 25px;
     width: 60%;
+    
 }
+
+.userInfoPageButtons {
+    background-color: #06952E;
+    color: white;
+    width: 30%;
+    margin: 5px auto ;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px ;
+}
+
+.userInfoPageButtons:hover {
+    background-color: darkgreen;
+    border: 2px solid white;
+}
+
+.userInfoPageButtons:active {
+    background-color: greenyellow;
+    border: 1px solid green;
+    font-weight: bold;
+}
+

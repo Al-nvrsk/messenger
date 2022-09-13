@@ -1,0 +1,8 @@
+[
+    {"adress": "./authPage.hbs", "value": "Authorization"},
+    {"adress": "./registrationPage.hbs", "value": "Registration"},
+    {"adress": "./UserInfoPage.hbs", "value": "User info"},
+    {"adress": "./ChatPage.hbs", "value": "Go to Chat"},
+    {"adress": "./404.hbs", "value": "Error 404"},
+    {"adress": "./500.hbs", "value": "Error 500"}
+]

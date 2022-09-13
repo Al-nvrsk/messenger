@@ -1,49 +1,23 @@
 {{!< chatwindow}}
 
+<main>
+<div class = "registrationwindow">
+    <h1> Create new user </h1>
+    <form class = "registrationform">
 
-    <div class="registrationwindow">
-    <h1>Create new user</h1>
-    <form class="registrationform">
-
-{{#each userstat}}
-    {{>"UIComponent/inputform/inputAuth" 
-    name=userstat.name
-    type=userstat.type
-    description=userstat.description}}
-{{/each}}
+        {{#each userRegistration}}
+            {{> "UIComponent/inputForm/inputAuth" 
+                name = this.name
+                type = this.type
+                description = this.description}}
+        {{/each}}
     
-    {{>"UIComponent/inputform/inputAuth" 
-    name="second_name"
-    type="text"
-    description="Input your Second name"}}
-
-    {{>"UIComponent/inputform/inputAuth" 
-    name="login"
-    type="text"
-    description="Input your login"}}
-
-    {{>"UIComponent/inputform/inputAuth" 
-    name="email"
-    type="text"
-    description="Input your email"}}
-
-    {{>"UIComponent/inputform/inputAuth" 
-    name="password"
-    type="password"
-    description="Input your password"}}
-
-    {{>"UIComponent/inputform/inputAuth" 
-    name="phone"
-    type="text"
-    description="Input your phone"}}
-
-    <div class="registrationwindowButton">
-    {{>"UIComponent/buttons/buttonAccept" value="Registration" type="submit" }}
-    
-    <a href="./authpage.hbs">Sign in</a>
-    </div>
-    
-</form>
+        <div class = "registrationwindowButton">
+            {{> "UIComponent/buttons/buttonAccept" value = "Registration" type = "submit" }}
+            {{> "tempNavigation" adress = "./authpage.hbs" value = "Sign in"}}
+            {{> "tempNavigation" adress = "./index.hbs" value = "Go to Content list"}}
+        </div>
+    </form>
 </div>
-
+</main>
 

@@ -1,14 +1,9 @@
+{{!-- Temp element untill routing will added --}}
+
 {{!< chatwindow}}
 
-<div class="mainIndex">
-    <a href="./authpage.hbs">Authorization</a>
-    <a href="./registrationpage.hbs">Registration</a>
-    <a href="./UserInfoPage.hbs">User info</a>
-    <a href="./ChatPage.hbs">Go to Chat</a>
-    <a href="./404.hbs">Error 404</a>
-    <a href="./500.hbs">Error 500</a>
-
-
-
-
+<div class = "mainIndex">
+    {{#each contentList}}
+        {{> "tempNavigation" this }}
+    {{/each}}
 </div>

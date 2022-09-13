@@ -10,3 +10,7 @@ Installation:
 
     - npm run start - command used for launch local Node JS server on localhost:3000/. Used library "express" allow server to shere static files.    
 
+    - npm run build - needed for launch product build
+
+
+The app is working on https://631f10079e1ad20471a7b0e1--sparkly-peony-4ec6bf.netlify.app/
