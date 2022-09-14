@@ -1,0 +1,30 @@
+.userinfo {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 35px ;
+    width: 60%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 18px;
+}
+
+.userinfo span  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999999;
+}
+
+.userinfo p  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.usernfo_line {
+    margin-top: 0;
+    border-color: #3369F3;
+    width: 60%;
+}

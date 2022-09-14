@@ -1,0 +1,25 @@
+{{!< chatwindow}}
+
+<main>
+<div class = "mainUserInfoPage">
+    {{> "UIComponent/buttons/buttonReturn" adress = "authpage.hbs" }}
+        <div class = "userinfopage">
+        <img src = "../assets/default user.png" alt = "avatar">
+    
+        {{#each userInfoPageStatus}}
+            {{> "UIComponent/userStat/userInfo" 
+                name = this.name
+                value = this.value}}
+        {{/each}}
+    </div>
+
+    <div class = "userInfoPageBlock">
+        {{#each userInfoPageButtons}}
+            <button class="userInfoPageButtons"> Change {{this}} </button>
+        {{/each}}
+    
+        {{> "UIComponent/buttons/buttonReject" value = "Exit" type = "button"}}
+        {{> "tempNavigation" adress = "./index.hbs" value = "Go to Content list"}}
+    </div>
+</div>
+</main>

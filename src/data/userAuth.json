@@ -1,0 +1,4 @@
+[
+    { "name": "login", "type": "text", "description": "Input your login" },
+    { "name": "password", "type": "password", "description": "Input your password" }
+]

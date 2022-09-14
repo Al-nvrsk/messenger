@@ -1,0 +1,17 @@
+.tempNavigation {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    font-size: 22px;
+    color: greenyellow;
+    margin: 10px;
+}
+
+.tempNavigation:visited {
+    color: greenyellow
+}
+
+.tempNavigation:hover {
+    color: #f00000;
+}

@@ -1,0 +1,21 @@
+{{!< chatwindow}}
+
+<main>
+<div class = "authwindow">
+    <h1> Sign in </h1>
+    <form class = "authform">
+        {{#each userAuth}}
+            {{> "UIComponent/inputForm/inputAuth" 
+                name = this.name
+                type = this.type
+                description = this.description}}
+        {{/each}}
+
+        <div class = "authPageButton">
+            {{> "UIComponent/buttons/buttonAccept" value = "Enter" type = "submit" }}
+            {{> "tempNavigation" adress = "./registrationPage.hbs" value = "Create account"}}
+            {{> "tempNavigation" adress = "./index.hbs" value = "Go to Content list"}}
+        </div>
+    </form>
+</div>
+</main>
