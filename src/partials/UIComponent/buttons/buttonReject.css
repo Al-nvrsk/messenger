@@ -1,23 +1,23 @@
 .buttonReject {
-    background-color: #f00000;
-    border: 1px solid #940404;
-    border-radius: 15%;
-    font-size: 18px;
-    color: white;
-    min-height: 50px;
-    min-width: 150px;
-    max-width: 300px;
-    justify-content: center;
-    margin: 15px auto;
+  background-color: #f00000;
+  border: 1px solid #940404;
+  border-radius: 15%;
+  font-size: 18px;
+  color: white;
+  min-height: 50px;
+  min-width: 150px;
+  max-width: 300px;
+  justify-content: center;
+  margin: 15px auto;
 }
 
 .buttonReject:hover {
-    background-color: #940404;
-    border: 2px solid white;
-    cursor: pointer;
+  background-color: #940404;
+  border: 2px solid white;
+  cursor: pointer;
 }
 
 .buttonReject:active {
-    background-color: #f00000;
-    border: 1px solid #940404;
+  background-color: #f00000;
+  border: 1px solid #940404;
 }

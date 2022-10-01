@@ -1,9 +1,9 @@
 .mainwindow {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: rgb(0, 0, 0);
-    color: #06952E;
-    height: auto;
-    width: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(0 0 0);
+  color: #06952e;
+  height: auto;
+  width: auto;
 }
