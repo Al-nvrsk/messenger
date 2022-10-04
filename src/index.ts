@@ -1,24 +1,40 @@
-import renderDOM from './utils/renderDOM'
-import registerComponent from './utils/registerComponent'
-import OnboardingPage from './pages/onboarding/onboarding'
-// import { Block, renderDOM, registerComponent }  from './utils/Block';
+// require('babel-core/register')
+import renderDOM from 'utils/renderDOM'
+import registerComponent from 'utils/registerComponent'
 
-// import './app.css';
-import Block from './utils/Block'
+import './styles/app.css'
 
-import Button from './components/button/button'
-require('@babel/register')
-// import Link from './components/link';
-// import Input from './components/input';
-// import Layout from './components/layout';
+// Components
+import ButtonAccept from 'components/buttons/buttonAccept/buttonAccept'
+import ButtonReject from 'components/buttons/buttonReject/buttonReject'
+import ButtonReturn from 'components/buttons/buttonReturn/buttonReturn'
+import ButtonChange from 'components/buttons/buttonChange/buttonChange'
+import Navigation from 'components/navigation/Navigation'
+import InputSearch from 'components/inputs/inputSearch/InputSearch'
+import InputBase from 'components/inputs/inputBase/inputBase'
+import errorBase from 'components/inputs/errorBase/errorBase'
+import ControlledInput from 'components/inputs/controlledInput/controlledInput'
+import UserStat from 'components/userStat/userStat'
 
-registerComponent(Button)
-// registerComponent(Link);
-// registerComponent(Input);
-// registerComponent(Layout);
+// Pages
+import AuthPage from 'pages/authPage/authPage'
+import RegistrationPage from 'pages/registrationPage/registrationPage'
+import UserInfoPage from 'pages/userInfoPage/UserInfoPage'
+import Error404Page from 'pages/errorPages/Error404Page'
+import Error500Page from 'pages/errorPages/Error500Page'
+import ChatPage from 'pages/chatPage/ChatPage'
 
-// TODO: // Добавить MyComponent
+registerComponent(ButtonAccept)
+registerComponent(ButtonReject)
+registerComponent(ButtonReturn)
+registerComponent(ButtonChange)
+registerComponent(Navigation)
+registerComponent(InputSearch)
+registerComponent(InputBase)
+registerComponent(errorBase)
+registerComponent(ControlledInput)
+registerComponent(UserStat)
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderDOM(new OnboardingPage())
+  renderDOM(new ChatPage())
 })

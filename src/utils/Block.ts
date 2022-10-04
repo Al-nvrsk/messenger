@@ -20,7 +20,7 @@ export default class Block<P = any> {
   private readonly _meta: BlockMeta
 
   protected _element: Nullable<HTMLElement> = null
-  protected readonly props: P
+  protected readonly props: any
   protected children: { [id: string]: Block } = {}
 
   eventBus: () => EventBus<Events>
@@ -164,7 +164,7 @@ export default class Block<P = any> {
   }
 
   _removeEvents (): void {
-    const events: Record<string, () => void> = (this.props as any).events
+    const events: Record<string, () => void> = (this.props).events
 
     if (!events || (this._element == null)) {
       return
@@ -176,7 +176,7 @@ export default class Block<P = any> {
   }
 
   _addEvents (): void {
-    const events: Record<string, () => void> = (this.props as any).events
+    const events: Record<string, () => void> = (this.props).events
 
     if (!events) {
       return

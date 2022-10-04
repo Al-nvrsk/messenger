@@ -1,0 +1,20 @@
+.buttonChange {
+  background-color: #06952e;
+  color: white;
+  width: 30%;
+  margin: 5px auto;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.buttonChange:hover {
+  background-color: darkgreen;
+  border: 2px solid white;
+}
+
+.buttonChange:active {
+  background-color: greenyellow;
+  border: 1px solid green;
+  font-weight: bold;
+}

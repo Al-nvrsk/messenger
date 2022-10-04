@@ -16,6 +16,7 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-this-alias': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'off'
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off'
   }
 }

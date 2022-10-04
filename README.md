@@ -6,11 +6,19 @@ Proposed project design - https://www.figma.com/file/lnCmqWQcpAxPpVEmMRSSvh/Yand
 
 Installation:
 
-    - npm run dev - command used for launch local parcel server, recomended use for check code changes
+    - npm run dev - command used for launch local parcel server, recomended use for check code changes.
 
     - npm run start - command used for launch local Node JS server on localhost:3000/. Used library "express" allow server to shere static files.    
 
-    - npm run build - needed for launch product build
+    - npm run build - needed for launch product build.
+
+    - npm run lint:ts - check code format in typeScript files.
+
+    - npm run lint:ts:fix - auto fix errors and warnings in typeScrip files.
+
+    - npm run lint:css - check code format in css files.
+
+    - npm run lint:css:fix - auto fix errors and warnings in css files.  
 
 
 The app is working on https://practicummessenger.netlify.app/
