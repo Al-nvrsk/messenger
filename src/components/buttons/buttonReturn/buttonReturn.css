@@ -7,15 +7,15 @@
   width: 3vmin;
   height: 3vmin;
   background: transparent;
-  border-top: 1vmin solid #f00;
-  border-right: 1vmin solid #f00;
-  box-shadow: 0 0 0 lightgray;
+  border-top: 1vmin solid var(--color-reject);
+  border-right: 1vmin solid var(--color-reject);
+  box-shadow: 0 0 0 var(--font-addition-noactive);
   transition: all 200ms ease;
 }
 
 .arrowleft:hover {
-  border-color: #06952e;
-  box-shadow: 0.5vmin -0.5vmin 0 #f00;
+  border-color: var(--main-border);
+  box-shadow: 0.5vmin -0.5vmin 0 var(--color-reject);
 }
 
 .arrowleft::before {

@@ -1,0 +1,16 @@
+:root {
+  --main-background: rgba(0, 0, 0, 100%);
+  --main-color: #06952e;
+  --main-border: #06952e;
+  --font-hover: greenyellow;
+  --color-reject: red;
+  --separate-line: #3369f3;
+  --temp-navigation: greenyellow;
+  --temp-navigation-hover: #f00000;
+  --font-addition-noactive: #999;
+  --reject-border: #940404;
+  --font-inreject: white;
+  --button-active: greenyellow;
+  --button-cover-hover: white;
+  --button-hover: darkgreen;
+}

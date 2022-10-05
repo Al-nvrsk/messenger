@@ -33,6 +33,6 @@
 
 .userinfo_line {
   margin-top: 0;
-  border-color: #3369f3;
+  border-color: var(--separate-line);
   width: 60%;
 }

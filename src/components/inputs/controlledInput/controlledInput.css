@@ -5,7 +5,7 @@
   margin: 10 auto;
   text-align: center;
   margin-left: 10%;
-  color: #999;
+  color: var(--font-addition-noactive);
   padding: 5px 0 0;
   font-size: 20px;
   font-weight: 600;
@@ -16,7 +16,7 @@
   display: flex;
   text-align: center;
   margin-left: 10%;
-  color: #999;
+  color: var(--font-addition-noactive);
   padding: 5px 0 0;
   font-size: 20px;
   font-weight: 600;
@@ -28,12 +28,12 @@
   margin: 0 auto;
   width: 80%;
   height: 45px;
-  background-color: black;
+  background-color: var(--main-background);
   font-size: 18px;
   border: none;
   outline-offset: 0;
   outline: none;
-  color: #06952e;
+  color: var(--main-color);
   box-sizing: border-box;
 }
 
@@ -42,6 +42,6 @@
 }
 
 .controlledInputLine {
-  border-color: #3369f3;
+  border-color: var(--separate-line);
   width: 80%;
 }

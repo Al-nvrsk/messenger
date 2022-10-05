@@ -1,21 +1,21 @@
 .buttonAccept {
-  background-color: #06952e;
-  border: 1px solid green;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-border);
   border-radius: 15%;
   font-size: 18px;
-  color: white;
+  color: var(--font-inreject);
   min-height: 50px;
   min-width: 150px;
   cursor: pointer;
 }
 
 .buttonAccept:hover {
-  background-color: darkgreen;
-  border: 2px solid white;
+  background-color: var(--button-hover);
+  border: 2px solid var(--button-cover-hover);
   cursor: pointer;
 }
 
 .buttonAccept:active {
-  background-color: #06952e;
-  border: 1px solid green;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-border);
 }

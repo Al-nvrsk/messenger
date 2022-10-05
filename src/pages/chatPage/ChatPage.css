@@ -5,14 +5,14 @@
 }
 
 .userList {
-  border-right: 1px solid green;
+  border-right: 1px solid var(--main-border);
   height: 100vh;
   width: 25%;
   box-sizing: border-box;
 }
 
-.userList a {
-  color: red;
+.userListLink {
+  color: var(--color-reject);
   margin: 20px;
   margin-bottom: 0;
   padding-bottom: 0%;
@@ -21,12 +21,12 @@
   cursor: pointer;
 }
 
-.userList a:hover {
-  color: greenyellow;
+.userListLink:hover {
+  color: var(--font-hover);
 }
 
 .chatPart {
-  border-left: 1px solid #06952e;
+  border-left: 1px solid var(--main-border);
   height: 100vh;
   width: 74%;
 }

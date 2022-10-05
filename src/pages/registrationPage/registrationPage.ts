@@ -33,8 +33,8 @@ export default class RegistrationPage extends Block {
                     
       <div class = "registrationwindowButton">
         {{{ ButtonAccept value = "Registration" type = "submit" onClick = onClick }}}
-        {{{ Navigation adress = "./index.html" value = "Go to Content list"}}}
-        {{{ Navigation adress = "./authPage.html" value ="Sign in"}}}
+        {{{ Navigation class = "registrationwindowButtonLink" adress = "./index.html" value = "Go to Content list"}}}
+        {{{ Navigation class = "registrationwindowButtonLink" adress = "./authPage.html" value ="Sign in"}}}
       </div>
     </form>
   </div>

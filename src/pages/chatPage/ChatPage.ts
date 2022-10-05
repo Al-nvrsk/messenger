@@ -9,7 +9,7 @@ export default class ChatPage extends Block {
         <div class = "ChatPage">
 
           <div class = "userList" >
-            <a href = "UserInfoPage.hbs"> Profile </a>
+            <a class = "userListLink" href = "UserInfoPage.hbs"> Profile </a>
             {{{ InputSearch 
             name = "search"
             type = "search"

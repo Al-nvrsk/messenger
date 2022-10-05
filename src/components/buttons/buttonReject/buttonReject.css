@@ -1,9 +1,9 @@
 .buttonReject {
-  background-color: #f00000;
-  border: 1px solid #940404;
+  background-color: var(--color-reject);
+  border: 1px solid var(--reject-border);
   border-radius: 15%;
   font-size: 18px;
-  color: white;
+  color: var(--font-inreject);
   min-height: 50px;
   min-width: 150px;
   max-width: 300px;
@@ -12,12 +12,12 @@
 }
 
 .buttonReject:hover {
-  background-color: #940404;
-  border: 2px solid white;
+  background-color: var(--reject-border);
+  border: 2px solid var(--font-inreject);
   cursor: pointer;
 }
 
 .buttonReject:active {
-  background-color: #f00000;
-  border: 1px solid #940404;
+  background-color: var(--color-reject);
+  border: 1px solid var(--reject-border);
 }

@@ -4,14 +4,14 @@
   justify-content: center;
   align-items: center;
   font-size: 22px;
-  color: greenyellow;
+  color: var(--temp-navigation);
   margin: 10px;
 }
 
 .tempNavigation:visited {
-  color: greenyellow;
+  color: var(--temp-navigation);
 }
 
 .tempNavigation:hover {
-  color: #f00000;
+  color: var(--temp-navigation-hover);
 }

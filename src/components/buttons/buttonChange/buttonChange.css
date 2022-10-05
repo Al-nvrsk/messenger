@@ -1,6 +1,6 @@
 .buttonChange {
-  background-color: #06952e;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--font-inreject);
   width: 30%;
   margin: 5px auto;
   cursor: pointer;
@@ -9,12 +9,12 @@
 }
 
 .buttonChange:hover {
-  background-color: darkgreen;
-  border: 2px solid white;
+  background-color: var(--button-hover);
+  border: 2px solid var(--button-cover-hover);
 }
 
 .buttonChange:active {
-  background-color: greenyellow;
-  border: 1px solid green;
+  background-color: var(--button-active);
+  border: 1px solid var(--main-border);
   font-weight: bold;
 }
