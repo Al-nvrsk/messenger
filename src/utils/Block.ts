@@ -2,10 +2,6 @@ import EventBus from './EventBus'
 import { nanoid } from 'nanoid'
 import Handlebars from 'handlebars'
 
-interface BlockMeta<P = any> {
-  props: P
-}
-
 type Events = Values<typeof Block.EVENTS>
 
 export default class Block<P = any> {
@@ -17,7 +13,6 @@ export default class Block<P = any> {
   } as const
 
   public id = nanoid(6)
-  private readonly _meta: BlockMeta
 
   protected _element: Nullable<HTMLElement> = null
   protected readonly props: any
@@ -25,20 +20,12 @@ export default class Block<P = any> {
 
   eventBus: () => EventBus<Events>
 
-  protected state: any = {}
-  protected refs: { [key: string]: HTMLElement } = {}
+  protected refs: { [key: string]: HTMLElement & P } = {}
 
   public constructor (props?: P) {
     const eventBus = new EventBus<Events>()
 
-    this._meta = {
-      props
-    }
-
-    this.getStateFromProps(props)
-
     this.props = this._makePropsProxy(props ?? {})
-    this.state = this._makePropsProxy(this.state)
 
     this.eventBus = () => eventBus
 
@@ -56,10 +43,6 @@ export default class Block<P = any> {
 
   _createResources (): void {
     this._element = this._createDocumentElement('div')
-  }
-
-  protected getStateFromProps (props: any): void {
-    this.state = {}
   }
 
   init (): void {
@@ -92,14 +75,6 @@ export default class Block<P = any> {
     }
 
     Object.assign(this.props, nextProps)
-  }
-
-  setState = (nextState: any): void => {
-    if (!nextState) {
-      return
-    }
-
-    Object.assign(this.state, nextState)
   }
 
   get element (): Nullable<HTMLElement> {
@@ -194,7 +169,7 @@ export default class Block<P = any> {
      * Рендерим шаблон
      */
     const template = Handlebars.compile(this.render())
-    fragment.innerHTML = template({ ...this.state, ...this.props, children: this.children, refs: this.refs })
+    fragment.innerHTML = template({ ...this.props, children: this.children, refs: this.refs })
 
     /**
      * Заменяем заглушки на компоненты
