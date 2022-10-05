@@ -5,6 +5,7 @@ import Handlebars from 'handlebars'
 type Events = Values<typeof Block.EVENTS>
 
 export default class Block<P = any> {
+  static componentName: string
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -54,7 +55,7 @@ export default class Block<P = any> {
     this.componentDidMount(props)
   }
 
-  componentDidMount (props: P): void {
+  componentDidMount (_props: P): void {
   }
 
   _componentDidUpdate (oldProps: P, newProps: P): void {
@@ -65,7 +66,7 @@ export default class Block<P = any> {
     this._render()
   }
 
-  componentDidUpdate (oldProps: P, newProps: P): boolean {
+  componentDidUpdate (_oldProps: P, _newProps: P): boolean {
     return true
   }
 
@@ -111,8 +112,6 @@ export default class Block<P = any> {
   }
 
   _makePropsProxy (props: any): any {
-    // Можно и так передать this
-    // Такой способ больше не применяется с приходом ES6+
     const self = this
 
     return new Proxy(props as unknown as object, {
@@ -123,8 +122,6 @@ export default class Block<P = any> {
       set (target: Record<string, unknown>, prop: string, value: unknown) {
         target[prop] = value
 
-        // Запускаем обновление компоненты
-        // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target)
         return true
       },
@@ -165,19 +162,10 @@ export default class Block<P = any> {
   _compile (): DocumentFragment {
     const fragment = document.createElement('template')
 
-    /**
-     * Рендерим шаблон
-     */
     const template = Handlebars.compile(this.render())
     fragment.innerHTML = template({ ...this.props, children: this.children, refs: this.refs })
 
-    /**
-     * Заменяем заглушки на компоненты
-     */
     Object.entries(this.children).forEach(([id, component]) => {
-      /**
-       * Ищем заглушку по id
-       */
       const stub = fragment.content.querySelector(`[data-id="${id}"]`)
 
       if (stub == null) {
@@ -186,15 +174,9 @@ export default class Block<P = any> {
 
       const stubChilds = stub.childNodes.length ? stub.childNodes : []
 
-      /**
-       * Заменяем заглушку на component._element
-       */
       const content = component.getContent()
       stub.replaceWith(content)
 
-      /**
-       * Ищем элемент layout-а, куда вставлять детей
-       */
       const layoutContent = content.querySelector('[data-layout="1"]')
 
       if ((layoutContent != null) && stubChilds.length) {
@@ -202,9 +184,6 @@ export default class Block<P = any> {
       }
     })
 
-    /**
-     * Возвращаем фрагмент
-     */
     return fragment.content
   }
 

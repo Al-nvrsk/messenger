@@ -2,6 +2,7 @@ import Block from 'utils/Block'
 import './ChatPage.css'
 
 export default class ChatPage extends Block {
+  static componentName = 'ChatPage'
   render (): string {
     return `
       <main>

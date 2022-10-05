@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-import template from 'bundle-text:./tempNavigation.hbs'
 import './tempNavigation.css'
 
 interface NavigationProps {
@@ -8,11 +7,9 @@ interface NavigationProps {
 }
 
 export default class Navigation extends Block {
+  static componentName = 'Navigation'
   constructor (props: NavigationProps) {
     const onClick = (e: MouseEvent): void => {
-      // const router = new Router();
-      // router.go(this.props.to);
-
       e.preventDefault()
     }
 
@@ -20,7 +17,8 @@ export default class Navigation extends Block {
   }
 
   render (): string {
-    // language=hbs
-    return template
+    return `
+      <a class = "tempNavigation" href = {{adress}}> {{value}} </a>
+    `
   }
 }

@@ -2,6 +2,7 @@ import Block from '../../utils/Block'
 import './errorPage.css'
 
 export default class Error404Page extends Block {
+  static componentName = 'Error404Page'
   render (): string {
     return `
       <div class = "errorPage">

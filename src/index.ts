@@ -36,5 +36,5 @@ registerComponent(ControlledInput)
 registerComponent(UserStat)
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderDOM(new ChatPage())
+  renderDOM(new UserInfoPage())
 })

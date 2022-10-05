@@ -4,6 +4,7 @@ import submitForm from 'utils/helper/submitForm'
 import userAuth from '../../data/userAuth'
 
 export default class AuthPage extends Block {
+  static componentName = 'AuthPage'
   constructor () {
     super()
     this.setProps({
@@ -32,7 +33,7 @@ export default class AuthPage extends Block {
 
           <div class = "authPageButton">
             {{{ ButtonAccept value = "Enter" type = "submit" onClick = onClick }}}
-            {{{ Navigation adress = "./registrationPage.hbs" value = "Create account"}}}
+            {{{ Navigation adress = "./RegistrationPage.html" value = "Create account"}}}
             {{{ Navigation adress = "./index.hbs" value = "Go to Content list"}}}
           </div>
         </form>

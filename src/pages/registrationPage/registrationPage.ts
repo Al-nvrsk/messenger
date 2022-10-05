@@ -4,6 +4,7 @@ import userRegistration from 'data/userRegistration'
 import submitForm from 'utils/helper/submitForm'
 
 export default class RegistrationPage extends Block {
+  static componentName = 'RegistrationPage'
   constructor () {
     super()
     this.setProps({

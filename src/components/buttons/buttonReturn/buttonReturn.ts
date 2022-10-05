@@ -9,6 +9,7 @@ interface ButtonReturnProps {
 }
 
 export default class ButtonReturn extends Block {
+  static componentName = 'ButtonReturn'
   constructor ({ value, onClick }: ButtonReturnProps) {
     super({ value, events: { click: onClick } })
   }

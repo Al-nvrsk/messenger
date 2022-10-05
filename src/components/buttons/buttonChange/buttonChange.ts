@@ -8,13 +8,14 @@ interface ButtonChangeProps {
 }
 
 export default class ButtonChange extends Block {
+  static componentName = 'ButtonChange'
   constructor ({ value, onClick }: ButtonChangeProps) {
     super({ value, events: { click: onClick } })
   }
 
   protected render (): string {
     return `
-    <button class = "buttonChange" type = "button"> Change {{value}} </button>
+      <button class = "buttonChange" type = "button"> Change {{value}} </button>
     `
   }
 }

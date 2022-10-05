@@ -7,9 +7,10 @@ interface errorBaseProps {
 }
 
 export default class errorBase extends Block<errorBaseProps> {
+  static componentName = 'errorBase'
   protected render (): string {
     return `
-    <div class = "errorBase" >{{#if text}}{{text}}{{/if}}</div>
+      <div class = "errorBase" >{{#if text}}{{text}}{{/if}}</div>
   `
   }
 }

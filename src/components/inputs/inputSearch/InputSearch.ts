@@ -13,6 +13,7 @@ interface InputSearchProps {
 }
 
 export default class InputSearch extends Block {
+  static componentName = 'InputSearch'
   constructor ({ onChange = () => {}, type = 'text', error, placeholder, value, name, description }: InputSearchProps) {
     super({ type, placeholder, value, name, error, description, events: { input: onChange } })
   }

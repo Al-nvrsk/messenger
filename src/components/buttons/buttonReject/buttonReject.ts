@@ -10,6 +10,7 @@ interface ButtonRejectProps {
 }
 
 export default class ButtonReject extends Block {
+  static componentName = 'ButtonReject'
   constructor ({ value, type, onClick }: ButtonRejectProps) {
     super({ value, type, events: { click: onClick } })
   }

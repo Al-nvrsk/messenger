@@ -14,6 +14,7 @@ interface ControlledInputProps {
 }
 
 export default class ControlledInput extends Block {
+  static componentName = 'ControlledInput'
   constructor (props: ControlledInputProps) {
     super({
       error: '',
@@ -26,12 +27,6 @@ export default class ControlledInput extends Block {
         )
 
         this.refs.errorRef.setProps({ text: errorMessage })
-        // if (errorMessage) {
-        //   this.setProps({
-        //     error: errorMessage,
-        //     inputValue: inputEl.value
-        //   })
-        // }
       },
       onInput: (e): void => {
         if (this.refs.errorRef.props.text) {
