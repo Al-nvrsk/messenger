@@ -1,0 +1,38 @@
+.userinfoMain {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+.userinfo {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 35px;
+  width: 60%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 18px;
+}
+
+.userinfoNameField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+
+.userinfoValueField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userinfo_line {
+  margin-top: 0;
+  border-color: var(--separate-line);
+  width: 60%;
+}

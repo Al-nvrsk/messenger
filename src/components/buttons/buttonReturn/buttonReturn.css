@@ -1,0 +1,29 @@
+.arrowleft {
+  left: 0;
+  transform: translate3d(0, -50%, 0) rotate(-135deg);
+  margin-left: 20px;
+  position: absolute;
+  top: 50%;
+  width: 3vmin;
+  height: 3vmin;
+  background: transparent;
+  border-top: 1vmin solid var(--color-reject);
+  border-right: 1vmin solid var(--color-reject);
+  box-shadow: 0 0 0 var(--font-addition-noactive);
+  transition: all 200ms ease;
+}
+
+.arrowleft:hover {
+  border-color: var(--main-border);
+  box-shadow: 0.5vmin -0.5vmin 0 var(--color-reject);
+}
+
+.arrowleft::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -60%) rotate(45deg);
+  width: 200%;
+  height: 200%;
+}

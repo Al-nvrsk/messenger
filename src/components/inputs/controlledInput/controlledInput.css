@@ -1,0 +1,47 @@
+.controlledInput {
+  display: flex;
+  flex-flow: column wrap;
+  box-sizing: border-box;
+  margin: 10 auto;
+  text-align: center;
+  margin-left: 10%;
+  color: var(--font-addition-noactive);
+  padding: 5px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.controlledInputLabel {
+  display: flex;
+  text-align: center;
+  margin-left: 10%;
+  color: var(--font-addition-noactive);
+  padding: 5px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.controlledInputField {
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+  height: 45px;
+  background-color: var(--main-background);
+  font-size: 18px;
+  border: none;
+  outline-offset: 0;
+  outline: none;
+  color: var(--main-color);
+  box-sizing: border-box;
+}
+
+.controlledInputField:focus {
+  font-weight: bold;
+}
+
+.controlledInputLine {
+  border-color: var(--separate-line);
+  width: 80%;
+}

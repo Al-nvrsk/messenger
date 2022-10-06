@@ -1,0 +1,7 @@
+/dist
+**/*.min.js
+/.github
+/.parcel-cache
+package.json
+package-lock.json
+

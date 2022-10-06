@@ -1,0 +1,6 @@
+.errorBase {
+  color: var(--color-reject);
+  font-size: 12px;
+  text-align: center;
+  height: 15px;
+}

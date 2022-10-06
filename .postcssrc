@@ -1,5 +1,1 @@
-{
-    "plugins": {
-        "postcss-import": true
-    }
-}
+{ "plugins": { "postcss-preset-env": { "stage": 0 } } }
