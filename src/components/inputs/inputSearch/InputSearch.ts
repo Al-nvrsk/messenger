@@ -1,6 +1,6 @@
 import Block from 'utils/Block'
 
-import './InputSearch.css'
+import './inputSearch.css'
 
 interface InputSearchProps {
   onChange?: () => void
