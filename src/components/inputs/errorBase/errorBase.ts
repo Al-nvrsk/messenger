@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './errorBase.css'
 
 interface errorBaseProps {

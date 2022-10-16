@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './userStat.css'
 
 interface UserStatProps {

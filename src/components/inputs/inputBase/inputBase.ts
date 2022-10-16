@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './inputBase.css'
 
 interface InputBaseProps {

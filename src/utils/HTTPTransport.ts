@@ -1,4 +1,6 @@
-enum METHODS {
+import queryStringify from './helper/queryStringify'
+
+enum Methods {
   GET = 'GET',
   POST = 'POST',
   PUT = 'PUT',
@@ -7,38 +9,30 @@ enum METHODS {
 };
 
 interface Options {
-  method?: METHODS
+  method?: Methods
   data?: any
   timeout?: number
   headers?: string
 }
 
-function queryStringify (data: object): string {
-  if (typeof data !== 'object') {
-    throw new Error('Data must be object')
-  }
-
-  const keys = Object.keys(data)
-  return keys.reduce((result, key, index) => {
-    return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`
-  }, '?')
-}
-
 class HTTPTransport {
   get = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.GET }, options.timeout)
+    if (options.data) {
+      url = `${url}${queryStringify(options.data)}`
+    }
+    return await this.request(url, { ...options, method: Methods.GET }, options.timeout)
   }
 
   post = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.POST }, options.timeout)
+    return await this.request(url, { ...options, method: Methods.POST }, options.timeout)
   }
 
   put = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.PUT }, options.timeout)
+    return await this.request(url, { ...options, method: Methods.PUT }, options.timeout)
   }
 
   delete = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.DELETE }, options.timeout)
+    return await this.request(url, { ...options, method: Methods.DELETE }, options.timeout)
   }
 
   request = async (url: string, options: Options = {}, timeout = 5000): Promise<object> => {
@@ -51,17 +45,14 @@ class HTTPTransport {
       }
 
       const xhr = new XMLHttpRequest()
-      const isGet = method === METHODS.GET
 
       xhr.open(
         method,
-        isGet && !!data
-          ? `${url}${queryStringify(data)}`
-          : url
+        url
       )
 
       Object.keys(headers).forEach(key => {
-        xhr.setRequestHeader(key, headers[key])
+        xhr.setRequestHeader(key, headers[key as keyof object])
       })
 
       xhr.onload = function () {
@@ -74,7 +65,7 @@ class HTTPTransport {
       xhr.timeout = timeout
       xhr.ontimeout = reject
 
-      if (isGet || !data) {
+      if (!data) {
         xhr.send()
       } else {
         xhr.send(data)
