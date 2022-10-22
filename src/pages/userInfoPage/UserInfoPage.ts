@@ -1,5 +1,5 @@
 import Block from 'utils/Block'
-import './userInfoPage.css'
+import './UserInfoPage.css'
 import store from '../../store/Store'
 
 import userInfoPageStatus from 'data/userInfoPageStatus'
