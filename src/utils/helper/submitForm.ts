@@ -1,6 +1,7 @@
+import store from '../../store/Store'
 import validateForm from './validateForm'
 
-export default function submitForm (): void {
+export default function submitForm (): void | object {
   const user: Record <string, string> = {}
   const fields = document.querySelectorAll('input')
   for (let i = 0; i < fields.length; i++) {
@@ -11,10 +12,10 @@ export default function submitForm (): void {
     )
     if (errorMessage) {
       alert('You have problem with input information. Please check fields info. The empty fields not allowed')
-      return
+      throw new Error('input information incorrect')
     } else {
       user[fieldname] = fieldvalue
     }
   }
-  console.log(user)
+  return user
 }

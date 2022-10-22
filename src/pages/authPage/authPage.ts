@@ -1,22 +1,39 @@
 import Block from '../../utils/Block'
 import './authPage.css'
-import submitForm from 'utils/helper/submitForm'
 import userAuth from '../../data/userAuth'
+import userSignInController from '../../controllers/auth/userSignInController'
+import { router } from '../../index'
+import { connect } from '../../utils/helper/connect'
+import type { AppState } from 'store/defaultState'
 
-export default class AuthPage extends Block {
+class AuthPage extends Block {
   static componentName = 'AuthPage'
-  constructor () {
-    super()
+  constructor (props: any) {
+    super(props)
     this.setProps({
-      onClick: (e) => {
+      gotoReg: () => this.gotoReg(),
+      signIn: async (e: Event) => {
         e.preventDefault()
-        submitForm()
+        await this.signIn()
       }
     })
   }
 
+  async signIn (): Promise<void> {
+    await userSignInController.auth()
+  }
+
+  gotoReg (): void {
+    router.go('/registration')
+  }
+
   render (): string {
-    return `
+    if (this.props.isAuth) {
+      router.go('/chat')
+      throw new Error('You have been authorized')
+    } else {
+      console.log('Authstoreprops=', this.props)
+      return `
       <main>
         <div class = "authwindow">
         <h1> Sign in </h1>
@@ -32,13 +49,24 @@ export default class AuthPage extends Block {
                 ref = "${val.ref}"}}}`)).join(' ')}
 
           <div class = "authPageButton">
-            {{{ ButtonAccept value = "Enter" type = "submit" onClick = onClick }}}
-            {{{ Navigation adress = "./RegistrationPage.html" value = "Create account"}}}
-            {{{ Navigation adress = "./index.hbs" value = "Go to Content list"}}}
+            {{{ ButtonAccept value = "Enter" type = "submit" onClick = signIn }}}
+            {{{ ButtonAccept value = "Create account" type = "button" onClick = gotoReg }}}
+            
+            
           </div>
         </form>
         </div>
       </main>
     `
+    }
   }
 }
+
+function mapStateToProps (state: AppState | Indexed): Indexed {
+  return {
+    state
+  }
+}
+const withStore = connect(mapStateToProps)
+
+export default withStore(AuthPage)

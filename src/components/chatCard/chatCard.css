@@ -1,0 +1,21 @@
+.chatCard {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  max-width: 250px;
+  max-height: 250px;
+  margin: 15px;
+  padding: 5px;
+  border: 1px solid var(--main-border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.chatTitle {
+  margin: 5px;
+}
+
+.chatUser {
+  margin: 5px;
+}

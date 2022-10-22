@@ -12,13 +12,13 @@ interface Options {
   method?: Methods
   data?: any
   timeout?: number
-  headers?: string
+  headers?: object
 }
 
 class HTTPTransport {
   get = async (url: string, options: Options = {}): Promise<object> => {
     if (options.data) {
-      url = `${url}${queryStringify(options.data)}`
+      url = `${url}?${queryStringify(options.data)}`
     }
     return await this.request(url, { ...options, method: Methods.GET }, options.timeout)
   }
@@ -52,9 +52,10 @@ class HTTPTransport {
       )
 
       Object.keys(headers).forEach(key => {
+        console.log(key, headers[key as keyof object])
         xhr.setRequestHeader(key, headers[key as keyof object])
       })
-
+      xhr.withCredentials = true
       xhr.onload = function () {
         resolve(xhr)
       }
@@ -73,3 +74,5 @@ class HTTPTransport {
     })
   }
 }
+
+export default HTTPTransport

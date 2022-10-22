@@ -28,7 +28,7 @@ export default class ControlledInput extends Block {
 
         this.refs.errorRef.setProps({ text: errorMessage })
       },
-      onInput: (e): void => {
+      onInput: (e: Event): void => {
         if (this.refs.errorRef.props.text) {
           const inputEl = e.target as HTMLInputElement
           const errorMessage = validateForm(

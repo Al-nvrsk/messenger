@@ -1,23 +1,43 @@
 import Block from 'utils/Block'
 import './userInfoPage.css'
+import store from '../../store/Store'
 
 import userInfoPageStatus from 'data/userInfoPageStatus'
 import userInfoPageButtons from 'data/userInfoPageButtons'
+import { router } from '../../index'
 
-export default class UserInfoPage extends Block {
+class UserInfoPage extends Block {
   static componentName = 'UserInfoPage'
+  constructor () {
+    super()
+    console.log(this.props)
+    this.setProps({
+      store: store.getState(),
+      gotoBack: () => this.gotoBack()
+    })
+  }
+
+  gotoBack (): void {
+    router.back()
+  }
+
   render (): string {
-    return `
+    console.log(this.props)
+    if (!store.getState().isAuth) {
+      router.go('/auth')
+      throw new Error('You have to be authorized')
+    } else {
+      return `
       <main>
         <div class = "mainUserInfoPage">
-          {{{ButtonReturn adress = "authpage.html" }}}
+          {{{ButtonReturn onClick=gotoBack }}}
             <div class = "userinfopage">
               <img src = "../../assets/default_user.png" alt = "avatar">
     
               ${(userInfoPageStatus.map(val =>
                   `{{{ UserStat 
                       name = "${val.name}"
-                      value = "${val.value}"}}}`)).join(' ')}
+                      value = "${store.getState().user[val.name]}"}}}`)).join(' ')}
       
             </div>
             <div class = "userInfoPageBlock">
@@ -25,11 +45,14 @@ export default class UserInfoPage extends Block {
               ${(userInfoPageButtons.map(val =>
                   `{{{ButtonChange value = "${val}" }}}`)).join(' ')}
     
-                  {{{ ButtonReject value = "Exit" type = "button"}}}
-                  {{{ Navigation adress = "./index.hbs" value = "Go to Content list"}}}
+                  {{{ ButtonReject value = "Exit" type = "button" onClick=gotoBack }}}
+                  
             </div>
         </div>
       </main>
     `
+    }
   }
 }
+
+export default UserInfoPage
