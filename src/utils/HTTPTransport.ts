@@ -69,6 +69,7 @@ class HTTPTransport {
       if (!data) {
         xhr.send()
       } else {
+        console.log('send=', data)
         xhr.send(data)
       }
     })

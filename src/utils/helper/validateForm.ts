@@ -1,4 +1,4 @@
-import { errorName, errorLogin, errorEmail, errorPassword, errorPhone, errorChatMessage, reg } from './validateFormConst'
+import { errorName, errorLogin, errorEmail, errorPassword, errorPhone, errorChatMessage, reg, errorDisplayName } from './validateFormConst'
 
 interface ValidateRule {
   type: string
@@ -65,6 +65,13 @@ export default function validateForm (rules: ValidateRule): string | void {
   if (type.includes('message')) {
     if (value.length === 0) {
       errorMessage = errorChatMessage
+    }
+  }
+  if (type.includes('display')) {
+    if (value.length === 0) {
+      errorMessage = errorChatMessage
+    } else if (value === 'null') {
+      errorMessage = errorDisplayName
     }
   }
 

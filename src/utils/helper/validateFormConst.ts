@@ -67,6 +67,8 @@ const errorPhone: Errors = {
   numbers: '...'
 }
 
-const errorChatMessage: string = 'The message have to contein something'
+const errorChatMessage: string = 'The fiels have to contein something'
 
-export { errorName, errorLogin, errorEmail, errorPassword, errorPhone, errorChatMessage, reg }
+const errorDisplayName: string = 'The dispay name can`t be "null"'
+
+export { errorName, errorLogin, errorEmail, errorPassword, errorPhone, errorChatMessage, reg, errorDisplayName }

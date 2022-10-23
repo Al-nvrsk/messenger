@@ -14,6 +14,7 @@ import errorBase from 'components/inputs/errorBase/errorBase'
 import ControlledInput from 'components/inputs/controlledInput/controlledInput'
 import UserStat from 'components/userStat/userStat'
 import chatCard from 'components/chatCard/chatCard'
+import modalWindow from 'components/modalWindow/modalWindow'
 
 // Pages
 import AuthPage from 'pages/authPage/authPage'
@@ -34,6 +35,7 @@ registerComponent(errorBase)
 registerComponent(ControlledInput)
 registerComponent(UserStat)
 registerComponent(chatCard)
+registerComponent(modalWindow)
 
 export const router = new Router('.app')
 

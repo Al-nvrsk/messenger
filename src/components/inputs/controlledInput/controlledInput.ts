@@ -58,7 +58,7 @@ export default class ControlledInput extends Block {
         onFocus = onFocus
         onInput = onInput
         onBlur = onBlur
-        value = "${this.props.inputValue}"
+        value = "${this.props.value}"
         ref = "{{ref}}"
         
       }}}

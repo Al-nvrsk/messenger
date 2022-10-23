@@ -1,4 +1,3 @@
-import store from '../../store/Store'
 import validateForm from './validateForm'
 
 export default function submitForm (): void | object {

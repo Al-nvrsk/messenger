@@ -6,6 +6,7 @@ import createNewChat from '../../controllers/chats/chatCreateController'
 import chatsGetController from '../../controllers/chats/chatsGetController'
 import type { AppState } from 'store/defaultState'
 import { connect } from '../../utils/helper/connect'
+import store from '../../store/Store'
 
 const controller = new UserCreateController()
 
@@ -19,7 +20,8 @@ class ChatPage extends Block {
       onClick: async (e: Event) => {
         e.preventDefault()
         await controller.logout()
-      }
+      },
+      onSelectChat: (e: Event) => store.setState('currentChatId', e.target.id)
     })
   }
 
@@ -51,8 +53,10 @@ class ChatPage extends Block {
             name = "search"
             type = "search"
             placeholder = "search"}}}
-            ${(this.props.chats?.map((chat: { title: string }) =>
-            `{{{chatCard title="${chat.title}"}}}`).join(' '))}
+            ${(this.props.chats?.map((chat: { title: string, id: number }) =>
+            `{{{chatCard id="${chat.id}"
+                  onClick = onSelectChat 
+                  title="${chat.title}"}}}`).join(' '))}
           </div>
 
           <div class = "chatPart"> 
@@ -62,6 +66,7 @@ class ChatPage extends Block {
             <div class = "chatPartMessage">
               
             <h2> Select user for chating... </h2>
+            <h3> Current chat Id = ${this.props.currentChatId}</h3>
             </div>
           </div>
     
@@ -77,7 +82,8 @@ function mapStateToProps (state: AppState | Indexed): Indexed {
     chats: state.chats,
     isAuth: state.isAuth,
     isLoading: state.isLoading,
-    user: state.user
+    user: state.user,
+    currentChatId: state.currentChatId
   }
 }
 const withStore = connect(mapStateToProps)

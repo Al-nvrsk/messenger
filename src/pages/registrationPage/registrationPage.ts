@@ -49,6 +49,7 @@ export default class RegistrationPage extends Block {
                     placeholder = "${val.name}"
                     description = "${val.description}"
                     label = "${val.description}"
+                    value = ""
                     ref = "${val.ref}"}}}`)).join(' ')}
                     
       <div class = "registrationwindowButton">

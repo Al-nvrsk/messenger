@@ -21,7 +21,7 @@ export default class InputBase extends Block {
 
   protected render (): string {
     return `
-      <input name = "{{name}}" class = "inputBase" type = {{type}} placeholder = "{{placeholder}}" />
+      <input name = "{{name}}" class = "inputBase" type = {{type}} placeholder = "{{placeholder}}" value = "{{value}}" />
     `
   }
 }

@@ -5,18 +5,19 @@ interface chatCardProps {
 
   title: string
   user: string
+  id: number
   onClick: () => void
 }
 
 export default class chatCard extends Block {
   static componentName = 'chatCard'
-  constructor ({ title, user, onClick }: chatCardProps) {
-    super({ title, user, events: { click: onClick } })
+  constructor ({ title, user, id, onClick }: chatCardProps) {
+    super({ title, user, id, events: { click: onClick } })
   }
 
   protected render (): string {
     return `
-        <div class = "chatCard"> 
+        <div class = "chatCard" id = {{id}}> 
           <div class = "chatTitle" >
             {{title}}
           </div>

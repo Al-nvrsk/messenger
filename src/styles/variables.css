@@ -1,5 +1,5 @@
 :root {
-  --main-background: rgba(0, 0, 0, 100%);
+  --main-background: rgb(0, 0, 0);
   --main-color: #06952e;
   --main-border: #06952e;
   --font-hover: greenyellow;
