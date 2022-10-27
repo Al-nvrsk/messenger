@@ -176,10 +176,11 @@ export default class Block<P = any> {
       const content = component.getContent()
       stub.replaceWith(content)
 
-      const layoutContent = content.querySelector('[data-layout="1"]')
+      const slotContent = content.querySelector('[data-slot="1"]') as HTMLDivElement
 
-      if ((layoutContent != null) && stubChilds.length) {
-        layoutContent.append(...stubChilds)
+      if (slotContent && stubChilds.length) {
+        slotContent.append(...stubChilds)
+        delete slotContent.dataset.slot
       }
     })
 

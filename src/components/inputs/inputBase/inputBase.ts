@@ -11,6 +11,7 @@ interface InputBaseProps {
   value?: string
   name: string
   description: string
+  ref?: string
 }
 
 export default class InputBase extends Block {
@@ -21,7 +22,7 @@ export default class InputBase extends Block {
 
   protected render (): string {
     return `
-      <input name = "{{name}}" class = "inputBase" type = {{type}} placeholder = "{{placeholder}}" value = "{{value}}" />
+      <input name = "{{name}}" class = "inputBase" type = {{type}} placeholder = "{{placeholder}}" value = "{{value}}" ref = "{{ref}}" />
     `
   }
 }

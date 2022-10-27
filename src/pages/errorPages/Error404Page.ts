@@ -20,7 +20,6 @@ export default class Error404Page extends Block {
       <div class = "errorPage">
         <h1> Error 404 </h1>
         <div> The page is absent </div>
-        {{{ Navigation adress = "./index.hbs" value ="Go to Main" onClick=gotoMain}}}
         {{{ ButtonAccept value = "go to Main" type = "button" onClick = gotoMain }}}
       </div>
     `

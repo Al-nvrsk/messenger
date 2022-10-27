@@ -52,7 +52,6 @@ class HTTPTransport {
       )
 
       Object.keys(headers).forEach(key => {
-        console.log(key, headers[key as keyof object])
         xhr.setRequestHeader(key, headers[key as keyof object])
       })
       xhr.withCredentials = true
@@ -69,7 +68,6 @@ class HTTPTransport {
       if (!data) {
         xhr.send()
       } else {
-        console.log('send=', data)
         xhr.send(data)
       }
     })

@@ -20,7 +20,6 @@ export default class Error500Page extends Block {
       <div class = "errorPage">
         <h1> Error 500 </h1>
         <div> We are trying to fix it already </div>
-        {{{ Navigation adress = "./index.hbs" value ="Go to Content list"}}}
         {{{ ButtonAccept value = "go to Main" type = "button" onClick = gotoMain }}}
       </div>
     `

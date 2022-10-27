@@ -18,7 +18,7 @@ export default class chatCard extends Block {
   protected render (): string {
     return `
         <div class = "chatCard" id = {{id}}> 
-          <div class = "chatTitle" >
+          <div class = "chatTitle" id = {{id}} >
             {{title}}
           </div>
           <div class = "chatUser">

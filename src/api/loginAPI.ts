@@ -1,5 +1,5 @@
 import HTTPTransport from 'utils/HTTPTransport'
-import { BaseAPI } from './base-api'
+import { BaseAPI } from './baseAPI'
 
 const authAPIInstance = new HTTPTransport()
 const url = process.env.URL
@@ -24,4 +24,5 @@ class LoginAPI extends BaseAPI {
   }
 }
 
-export default LoginAPI
+const loginApi = new LoginAPI()
+export default loginApi

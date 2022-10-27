@@ -1,4 +1,4 @@
-type PlainObject<T = unknown | string> = {
+export type PlainObject<T = unknown | string> = {
   [k in string | number]: T;
 }
 

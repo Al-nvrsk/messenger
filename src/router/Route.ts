@@ -9,7 +9,6 @@ export interface RouteType {
 }
 
 class Route implements RouteType {
-// TODO: Check types
   _pathname: string
   _blockClass: any
   _block: any

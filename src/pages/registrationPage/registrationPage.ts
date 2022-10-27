@@ -1,9 +1,8 @@
 import Block from 'utils/Block'
 import './registrationPage.css'
 import userRegistration from 'data/userRegistration'
-import submitForm from 'utils/helper/submitForm'
 import { router } from '../../index'
-import UserCreateController from '../../controllers/auth/userCreateController'
+import userCreateController from '../../controllers/auth/createUser'
 import store from '../../store/Store'
 
 export default class RegistrationPage extends Block {
@@ -15,10 +14,9 @@ export default class RegistrationPage extends Block {
       gotoAuth: () => this.gotoAuth(),
       onClick: async (e: Event) => {
         e.preventDefault()
-        submitForm()
-        const userController = new UserCreateController()
+
         try {
-          await userController.create(store.getState().user)
+          await userCreateController()
           router.go('/auth')
           alert('User have been create')
         } catch (err) { console.log(err) }
@@ -27,7 +25,6 @@ export default class RegistrationPage extends Block {
   }
 
   gotoAuth (): void {
-    console.log('tryGo')
     router.go('/auth')
   }
 

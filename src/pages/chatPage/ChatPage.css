@@ -9,6 +9,14 @@
   height: 100vh;
   width: 25%;
   box-sizing: border-box;
+  overflow-x: unset;
+}
+
+.userListBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .userListLink {
@@ -29,15 +37,80 @@
   border-left: 1px solid var(--main-border);
   height: 100vh;
   width: 74%;
+  box-sizing: border-box;
 }
 
 .chatPartMessage {
+  box-sizing: border-box;
   display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .logoutButton {
   display: flex;
+}
+
+.mainChatting {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column wrap;
+  width: 95%;
+}
+
+.buttonBar {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.messageDisplay {
+  display: flex;
+  height: 70%;
+}
+
+.inputMessageConteiner {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 10px 5px;
+  width: 100%;
+}
+
+.inputMessage {
+  display: flex;
+  color: var(--font-hover);
+  flex-direction: column;
+  margin: 5px 20px;
+  width: 90%;
+  height: 45px;
+  background-color: var(--main-background);
+  font-size: 18px;
+  border: none;
+  outline-offset: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.InfoChat {
+  margin: 10px 20px;
+}
+
+.messageCardConteiner {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  height: 65vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.emptyField {
+  display: flex;
+  height: 100vh;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
 }

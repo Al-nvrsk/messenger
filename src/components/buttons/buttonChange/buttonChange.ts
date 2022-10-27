@@ -14,7 +14,7 @@ export default class ButtonChange extends Block {
 
   protected render (): string {
     return `
-      <button class = "buttonChange" type = "button"> Change {{value}} </button>
+      <button class = "buttonChange" type = "button"> {{value}} </button>
     `
   }
 }

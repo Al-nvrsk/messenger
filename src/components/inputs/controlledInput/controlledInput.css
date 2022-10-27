@@ -1,16 +1,17 @@
 .controlledInput {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   box-sizing: border-box;
   margin: 10 auto;
   text-align: center;
-  margin-left: 10%;
+  margin-left: 5%;
   color: var(--font-addition-noactive);
   padding: 5px 0 0;
   font-size: 20px;
   font-weight: 600;
   margin-top: 5px;
   height: auto;
+  width: 40vw;
 }
 
 .controlledInputLabel {
@@ -38,11 +39,7 @@
   box-sizing: border-box;
 }
 
-.controlledInputField:focus {
-  font-weight: bold;
-}
-
 .controlledInputLine {
   border-color: var(--separate-line);
-  width: 80%;
+  width: 90%;
 }

@@ -20,10 +20,10 @@ export default class InputSearch extends Block {
   protected render (): string {
     return `
       <div class = "inputAuth">
-        <label for = {{name}}>
+        <label class = "inputAuthLabel" for = {{name}}>
           <b> {{description}} </b>
         </label>
-        <input name = {{name}} type = {{type}} placeholder = {{name}} required />
+        <input class = "inputAuthInput" name = {{name}} type = {{type}} placeholder = {{name}} required />
         <hr> 
       </div>
     `

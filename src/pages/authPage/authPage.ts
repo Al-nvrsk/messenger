@@ -1,7 +1,7 @@
 import Block from '../../utils/Block'
 import './authPage.css'
 import userAuth from '../../data/userAuth'
-import userSignInController from '../../controllers/auth/userSignInController'
+import userSignInController from '../../controllers/auth/signInUser'
 import { router } from '../../index'
 import { connect } from '../../utils/helper/connect'
 import type { AppState } from 'store/defaultState'
@@ -20,7 +20,7 @@ class AuthPage extends Block {
   }
 
   async signIn (): Promise<void> {
-    await userSignInController.auth()
+    await userSignInController()
   }
 
   gotoReg (): void {
@@ -32,7 +32,6 @@ class AuthPage extends Block {
       router.go('/chat')
       throw new Error('You have been authorized')
     } else {
-      console.log('Authstoreprops=', this.props)
       return `
       <main>
         <div class = "authwindow">

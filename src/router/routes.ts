@@ -7,7 +7,7 @@ import UserInfoPage from 'pages/userInfoPage/UserInfoPage'
 const routes = [
   {
     path: '/auth',
-    block: new AuthPage(),
+    block: AuthPage,
     shouldAuthorized: false
   },
   {
@@ -17,12 +17,12 @@ const routes = [
   },
   {
     path: '/chat',
-    block: new ChatPage(),
+    block: ChatPage,
     shouldAuthorized: true
   },
   {
     path: '/profile',
-    block: new UserInfoPage(),
+    block: UserInfoPage,
     shouldAuthorized: true
   },
   {

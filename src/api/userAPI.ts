@@ -1,5 +1,5 @@
 import HTTPTransport from 'utils/HTTPTransport'
-import { BaseAPI } from './base-api'
+import { BaseAPI } from './baseAPI'
 
 const authAPIInstance = new HTTPTransport()
 const url = process.env.URL
@@ -15,9 +15,9 @@ class UserOperationAPI extends BaseAPI {
       { data: password, headers: { 'Content-type': 'application/json' } })
   }
 
-  async changeAvatar (form): Promise<any> {
+  async changeAvatar (form: FormData): Promise<any> {
     return await authAPIInstance.put(`${url}` + '/user/profile/avatar',
-    { data: form })
+      { data: form })
   }
 }
 

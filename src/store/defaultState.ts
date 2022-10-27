@@ -2,11 +2,20 @@ export interface AppState {
   appIsInited: boolean
   isLoading: boolean
   isAuth: boolean
-  isModalActive: boolean
+  isChangeAvatarActive: boolean
+  isChangePasswordActive: boolean
+  isChangeUserInfoActive: boolean
   currentChatId: number
+  currentChatTitle: string
   loginFormError: string | null
-  user: User | null
+  token: any
+  currentChatMessages: object[]
+  user: {
+    id: number | null
+  }
   chats: object[] | null
+  getState?: () => any
+  setState?: () => void
 }
 
 export const defaultState: AppState = {
@@ -14,8 +23,15 @@ export const defaultState: AppState = {
   isLoading: false,
   isAuth: false,
   currentChatId: 0,
-  isModalActive: false,
+  currentChatTitle: '',
+  isChangeAvatarActive: false,
+  isChangePasswordActive: false,
+  isChangeUserInfoActive: false,
   loginFormError: null,
-  user: null,
+  token: '',
+  currentChatMessages: [],
+  user: {
+    id: null
+  },
   chats: null
 }

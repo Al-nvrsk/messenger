@@ -45,7 +45,7 @@ export default class ControlledInput extends Block {
     <div>
       <div class="controlledInput">
       <div class = "controlledInputLabel">
-        {{label}}:
+        {{label}}
       </div>
         <div class="errorrs">
       {{{errorBase ref="errorRef" text=error}}}

@@ -14,7 +14,10 @@ import errorBase from 'components/inputs/errorBase/errorBase'
 import ControlledInput from 'components/inputs/controlledInput/controlledInput'
 import UserStat from 'components/userStat/userStat'
 import chatCard from 'components/chatCard/chatCard'
-import modalWindow from 'components/modalWindow/modalWindow'
+import modalChangeAvatar from 'components/modalsWindow/modalChangeAvatar/modalChangeAvatar'
+import modalChangePassword from 'components/modalsWindow/modalChangePassword/modalChangePassword'
+import modalChangeUserInfo from 'components/modalsWindow/modalChangeUserInfo/modalChangeUserInfo'
+import messageCard from 'components/messageCard/messageCard'
 
 // Pages
 import AuthPage from 'pages/authPage/authPage'
@@ -35,7 +38,10 @@ registerComponent(errorBase)
 registerComponent(ControlledInput)
 registerComponent(UserStat)
 registerComponent(chatCard)
-registerComponent(modalWindow)
+registerComponent(modalChangeAvatar)
+registerComponent(modalChangePassword)
+registerComponent(modalChangeUserInfo)
+registerComponent(messageCard)
 
 export const router = new Router('.app')
 
@@ -48,7 +54,3 @@ router
   .use('/chat', ChatPage)
   .use('*', Error404Page)
   .start()
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   renderDOM(new RegistrationPage())
-// })

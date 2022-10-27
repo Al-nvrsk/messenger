@@ -3,7 +3,6 @@ import './UserInfoPage.css'
 import type { AppState } from 'store/defaultState'
 import { connect } from '../../utils/helper/connect'
 import userInfoPageStatus from 'data/userInfoPageStatus'
-import userInfoPageButtons from 'data/userInfoPageButtons'
 import { router } from '../../index'
 import store from '../../store/Store'
 
@@ -13,31 +12,29 @@ class UserInfoPage extends Block {
     super(props)
     this.setProps({
       store: store.getState,
-      gotoBack: () => this.gotoBack(),
-      // onHide: this.props.state
-      onShow: () => store.setState('isModalActive', true)
+      gotoBack: () => router.back(),
+      changeAvatar: () => store.setState('isChangeAvatarActive', true),
+      changePassword: () => store.setState('isChangePasswordActive', true),
+      changeUserInfo: () => store.setState('isChangeUserInfoActive', true)
+
     })
   }
 
-  gotoBack (): void {
-    router.back()
-  }
-
   render (): string {
-    console.log('UserInfoPage', this.props)
-    // if (!this.props.isAuth) {
-    //   router.go('/auth')
-    //   throw new Error('You have to be authorized')
-    // } else {
+    if (!this.props.isAuth) {
+      router.go('/auth')
+      throw new Error('You have to be authorized')
+    } else {
       let path = ''
       if (this.props.user) {
-        console.log('avatar path=', this.props.user.avatar)
-        path = process.env.URL+ '/auth/user' + this.props.user.avatar
-        console.log('path=', path)
+        path = `${process.env.URL}` + '/resources' + `${this.props.user.avatar}`
       }
-    return `
+      return `
       <main>
-      {{{ modalWindow active = ${this.props.isModalActive} setActive = ${this.props} }}}
+      {{{ modalChangeAvatar active = ${this.props.isChangeAvatarActive} }}}
+      {{{ modalChangePassword active = ${this.props.isChangePasswordActive} }}}
+      {{{modalChangeUserInfo active = ${this.props.isChangeUserInfoActive}}}}
+      
         <div class = "mainUserInfoPage">
           {{{ButtonReturn onClick=gotoBack }}}
             <div class = "userinfopage">
@@ -51,11 +48,11 @@ class UserInfoPage extends Block {
             </div>
             <div class = "userInfoPageBlock">
 
-              ${(userInfoPageButtons.map(val =>
-                  `{{{ButtonChange value = "${val}" }}}`)).join(' ')}
+              
+                  {{{ButtonChange value = "Change avatar" onClick = changeAvatar }}}
+                  {{{ButtonChange value = "Change userInfo" onClick = changeUserInfo }}}
+                  {{{ButtonChange value = "Change password" onClick = changePassword }}}
                   
-                  {{{ ButtonReject value = "Hide" type = "button" onClick=onHide }}}
-                  {{{ ButtonReject value = "Show" type = "button" onClick=onShow }}}
                   {{{ ButtonReject value = "Exit" type = "button" onClick=gotoBack }}}
                   
             </div>
@@ -64,14 +61,16 @@ class UserInfoPage extends Block {
         
       </main>
     `
-    // }
+    }
   }
 }
 
 function mapStateToProps (state: AppState | Indexed): Indexed {
   return {
     user: state.user,
-    isModalActive: state.isModalActive
+    isChangeAvatarActive: state.isChangeAvatarActive,
+    isChangePasswordActive: state.isChangePasswordActive,
+    isChangeUserInfoActive: state.isChangeUserInfoActive
   }
 }
 const withStore = connect(mapStateToProps)

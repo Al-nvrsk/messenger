@@ -28,6 +28,10 @@ declare global {
   export interface ResponseData {
     response?: string
   }
+
+  export interface modalWindowType {
+    active: boolean
+  }
 }
 
 export {}
