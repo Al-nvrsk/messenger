@@ -2,7 +2,7 @@ import HTTPTransport from 'utils/HTTPTransport'
 import { BaseAPI } from './baseAPI'
 
 const authAPIInstance = new HTTPTransport()
-const url = process.env.URL
+const url = 'https://ya-praktikum.tech/api/v2'
 
 class LoginAPI extends BaseAPI {
   async create (user: string): Promise<object> {
