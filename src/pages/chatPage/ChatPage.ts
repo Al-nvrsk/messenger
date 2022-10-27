@@ -24,8 +24,8 @@ class ChatPage extends Block {
       AddUser: async () => await chatsAddUsersController(),
       DeleteChat: async () => await chatDeleteController(this.props.currentChatId),
       DeleteUser: async () => await deleteUserFromChat(),
-      SendMessage: async () => await sendMessage(document.getElementById('message')?.value)
-        .then(() => document.getElementById('message').value = ''),
+      SendMessage: async () => await sendMessage((document.getElementById('message') as HTMLInputElement).value)
+        .then(() => ((document.getElementById('message') as HTMLInputElement).value = '')),
       LogOut: async (e: Event) => {
         e.preventDefault()
         if (store.getState().token) {

@@ -70,7 +70,8 @@ function mapStateToProps (state: AppState | Indexed): Indexed {
     user: state.user,
     isChangeAvatarActive: state.isChangeAvatarActive,
     isChangePasswordActive: state.isChangePasswordActive,
-    isChangeUserInfoActive: state.isChangeUserInfoActive
+    isChangeUserInfoActive: state.isChangeUserInfoActive,
+    isAuth: state.isAuth
   }
 }
 const withStore = connect(mapStateToProps)

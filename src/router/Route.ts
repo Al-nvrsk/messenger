@@ -1,4 +1,3 @@
-import isEqual from 'utils/helper/isEqual'
 import renderDOM from 'utils/renderDOM'
 
 export interface RouteType {
@@ -35,7 +34,7 @@ class Route implements RouteType {
   }
 
   match (pathname: string): boolean {
-    return isEqual(pathname, this._pathname)
+    return (pathname === this._pathname)
   }
 
   render (): void {
