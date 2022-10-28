@@ -1,5 +1,4 @@
 import chatsApi from '../../api/chatAPI'
-import errorHendlerApi from '../../api/errorHendlerApi'
 import store from '../../store/Store'
 
 const addUsersToChat = async (): Promise<any> => {
@@ -12,7 +11,6 @@ const addUsersToChat = async (): Promise<any> => {
   }
   try {
     await chatsApi.addUser(JSON.stringify(sendData))
-      .then(async (res) => await errorHendlerApi(res))
   } catch (error) {
     console.log('Error:', error)
   }
