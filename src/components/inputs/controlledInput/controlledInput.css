@@ -4,14 +4,13 @@
   box-sizing: border-box;
   margin: 10 auto;
   text-align: center;
-  margin-left: 5%;
   color: var(--font-addition-noactive);
   padding: 5px 0 0;
   font-size: 20px;
   font-weight: 600;
   margin-top: 5px;
   height: auto;
-  width: 40vw;
+  width: 85%;
 }
 
 .controlledInputLabel {

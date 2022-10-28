@@ -23,7 +23,7 @@ export default class modalChangeAvatar extends Block {
     return `
       <div  class = ${this.props.props.active ? 'modalWindowActive' : 'modalWindow'}>
         <div class = ${this.props.props.active ? 'modalWindow_contentActive' : 'modalWindow_content'}>
-          <div class = "changeInfoInput">
+          <div class = "changeInfoInputAvatar">
             <form id="myUserForm" >
               <input id="avatar" type="file" name="avatar" accept="image/*">
             </form>

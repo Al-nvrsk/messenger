@@ -4,14 +4,6 @@
   margin: auto;
 }
 
-.mainUserInfoPage a {
-  margin: 35px;
-  display: flex;
-  height: 100%;
-  justify-content: start;
-  align-items: center;
-}
-
 .userinfopage {
   margin-top: 20px;
   display: flex;

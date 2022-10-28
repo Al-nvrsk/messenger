@@ -23,7 +23,7 @@ export default class modalChangePassword extends Block {
     return `
     <div  class = ${this.props.props.active ? 'modalWindowActive' : 'modalWindow'}>
       <div class = ${this.props.props.active ? 'modalWindow_contentActive' : 'modalWindow_content'}>
-          <form class = "changeInfoInput">
+          <form class = "changeInfoInputPassword">
                 
                 {{{ ControlledInput name = "oldPassword"
                             onFocus=onFocus

@@ -2,7 +2,7 @@ import HTTPTransport from 'utils/HTTPTransport'
 import { BaseAPI } from './baseAPI'
 
 const chatAPIInstance = new HTTPTransport()
-const url = 'https://ya-praktikum.tech/api/v2'
+const url = process.env.URL ?? 'https://ya-praktikum.tech/api/v2'
 
 class ChatAPI extends BaseAPI {
   async getChats (query: Indexed): Promise<Indexed> {

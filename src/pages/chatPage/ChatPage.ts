@@ -38,7 +38,7 @@ class ChatPage extends Block {
 
   async onSelectChat (e: Event): Promise<void> {
     e.target && store.setState('currentChatId', (e.target as HTMLElement).id)
-    const currentChat = this.props.chats.find((value: Indexed) => (value.id == store.getState().currentChatId))
+    const currentChat = this.props.chats.find((value: Indexed) => (value.id.toString() === store.getState().currentChatId))
     store.setState('currentChatTitle', currentChat.title)
     if (this.props.currentChatId > 0) {
       await chatGetUsersController(this.props.currentChatId)
