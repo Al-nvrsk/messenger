@@ -27,7 +27,7 @@ class UserInfoPage extends Block {
     } else {
       let path = ''
       if (this.props.user) {
-        path = (process.env.URL ?? 'https://ya-praktikum.tech/api/v2') + `/resources${this.props.user.avatar}`
+        path = `https://ya-praktikum.tech/api/v2/resources${this.props.user.avatar}`
       }
       return `
       <main>
