@@ -21,8 +21,7 @@ Installation:
     - npm run lint:css:fix - auto fix errors and warnings in css files.  
 
 
-The app registration page is working on https://sprint-2--practicummessenger.netlify.app/
-Other pages are readt, but will be added to build app in sprint 3 with routing.
+The app registration page is working on https://practicummessenger.netlify.app/auth
 
 <img src="./src/assets/attention.png" alt="Attention"/>
  postcss-preset-env - added to project for netlify build. There are problems with variables in css during netlify build process without it.
