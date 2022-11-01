@@ -1,5 +1,5 @@
 import Block from 'utils/Block'
-import './FormForSubmit.css'
+import './formForSubmit.css'
 
 interface FormForSubmitProps {
 
