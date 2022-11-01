@@ -1,5 +1,7 @@
 import queryStringify from './helper/queryStringify'
 
+type HTTPMethod = (url: string, options?: Options) => Promise<object>
+
 enum Methods {
   GET = 'GET',
   POST = 'POST',
@@ -10,32 +12,34 @@ enum Methods {
 
 interface Options {
   method?: Methods
-  data?: any
+  data?: string | Indexed
   timeout?: number
   headers?: object
 }
 
+const headerJson = { 'Content-type': 'application/json' }
+
 class HTTPTransport {
-  get = async (url: string, options: Options = {}): Promise<object> => {
-    if (options.data) {
+  get: HTTPMethod = async (url, options = {}) => {
+    if (options.data && typeof options.data === 'object') {
       url = `${url}?${queryStringify(options.data)}`
     }
     return await this.request(url, { ...options, method: Methods.GET }, options.timeout)
   }
 
-  post = async (url: string, options: Options = {}): Promise<object> => {
+  post: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: Methods.POST }, options.timeout)
   }
 
-  put = async (url: string, options: Options = {}): Promise<object> => {
+  put: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: Methods.PUT }, options.timeout)
   }
 
-  delete = async (url: string, options: Options = {}): Promise<object> => {
+  delete: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: Methods.DELETE }, options.timeout)
   }
 
-  request = async (url: string, options: Options = {}, timeout = 5000): Promise<object> => {
+  request = async (url: string, options: Options = {}, timeout: number = 5000): Promise<object> => {
     const { headers = {}, method, data } = options
 
     return await new Promise(function (resolve, reject) {
@@ -68,10 +72,10 @@ class HTTPTransport {
       if (!data) {
         xhr.send()
       } else {
-        xhr.send(data)
+        xhr.send(data as string)
       }
     })
   }
 }
 
-export default HTTPTransport
+export { HTTPTransport, headerJson }

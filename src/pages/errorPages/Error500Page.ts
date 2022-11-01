@@ -2,7 +2,7 @@ import Block from '../../utils/Block'
 import { router } from '../../index'
 import './errorPage.css'
 
-export default class Error500Page extends Block {
+export default class Error500Page extends Block<Indexed> {
   static componentName = 'Error500Page'
   constructor () {
     super()

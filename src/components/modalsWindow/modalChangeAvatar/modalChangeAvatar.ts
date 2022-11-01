@@ -3,7 +3,7 @@ import './modalChangeAvatar.css'
 import store from '../../../store/Store'
 import userChangeAvatarController from '../../../controllers/user/changeUserAvatar'
 
-export default class modalChangeAvatar extends Block {
+export default class modalChangeAvatar extends Block<Indexed> {
   static componentName = 'modalChangeAvatar'
   constructor ({ ...props }: modalWindowType) {
     super({ props })

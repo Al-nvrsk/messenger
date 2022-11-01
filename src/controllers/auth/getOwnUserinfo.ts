@@ -1,7 +1,7 @@
 import loginApi from '../../api/loginAPI'
 import store from '../../store/Store'
 
-const getOwnUserinfo = async (): Promise<any> => {
+const getOwnUserinfo = async (): Promise<void> => {
   try {
     store.setState('isLoading', true)
     await loginApi.request()

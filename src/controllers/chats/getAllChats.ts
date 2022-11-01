@@ -6,7 +6,7 @@ const defaultquery = {
   limit: 15
 }
 
-const getAllChats = async (data: Indexed = defaultquery): Promise<any> => {
+const getAllChats = async (data: Indexed = defaultquery): Promise<void> => {
   try {
     await chatsApi.getChats(data)
       .then((data: ResponseData) => data.response && store.setState('chats', JSON.parse(data.response)))

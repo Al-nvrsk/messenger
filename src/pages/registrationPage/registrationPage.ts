@@ -5,14 +5,14 @@ import { router } from '../../index'
 import userCreateController from '../../controllers/auth/createUser'
 import store from '../../store/Store'
 
-export default class RegistrationPage extends Block {
+export default class RegistrationPage extends Block<Indexed> {
   static componentName = 'RegistrationPage'
   constructor () {
     super()
     this.setProps({
       store: store.getState(),
       gotoAuth: () => this.gotoAuth(),
-      onClick: async (e: Event) => {
+      onSubmit: async (e: Event) => {
         e.preventDefault()
 
         try {
@@ -36,7 +36,7 @@ export default class RegistrationPage extends Block {
       return ` 
     <div class = "registrationwindow">
       <h1 class = "header"> Create new user </h1>
-      <form class = "registrationform">
+      {{#FormForSubmit onSubmit = onSubmit}}
               
       ${(userRegistration.map(val =>
           `{{{ ControlledInput name = "${val.name}"
@@ -50,10 +50,10 @@ export default class RegistrationPage extends Block {
                     ref = "${val.ref}"}}}`)).join(' ')}
                     
       <div class = "registrationwindowButton">
-        {{{ ButtonAccept value = "Registration" type = "submit" onClick = onClick }}}
+        {{{ ButtonAccept value = "Registration" type = "submit" }}}
         {{{ ButtonAccept value = "Sign in" type = "button" onClick = gotoAuth }}}
         </div>
-    </form>
+        {{/FormForSubmit}}
   </div>
   `
     }

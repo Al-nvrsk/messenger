@@ -3,7 +3,7 @@ import { router } from '../../index'
 import store from '../../store/Store'
 import submitForm from 'utils/helper/submitForm'
 
-const createUser = async (): Promise<any> => {
+const createUser = async (): Promise<void> => {
   const userForReg = submitForm()
   if (userForReg) {
     try {

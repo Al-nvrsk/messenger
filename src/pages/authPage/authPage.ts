@@ -6,21 +6,17 @@ import { router } from '../../index'
 import { connect } from '../../utils/helper/connect'
 import type { AppState } from 'store/defaultState'
 
-class AuthPage extends Block {
+class AuthPage extends Block<Indexed> {
   static componentName = 'AuthPage'
-  constructor (props: any) {
-    super(props)
+  constructor () {
+    super({})
     this.setProps({
       gotoReg: () => this.gotoReg(),
-      signIn: async (e: Event) => {
+      onSubmit: async (e: Event) => {
         e.preventDefault()
-        await this.signIn()
+        await userSignInController()
       }
     })
-  }
-
-  async signIn (): Promise<void> {
-    await userSignInController()
   }
 
   gotoReg (): void {
@@ -36,7 +32,7 @@ class AuthPage extends Block {
       <main>
         <div class = "authwindow">
         <h1> Sign in </h1>
-        <form class = "authform">
+        {{#FormForSubmit onSubmit = onSubmit}}
           ${(userAuth.map(val =>
             `{{{ ControlledInput name = "${val.name}"
                 onFocus=onFocus
@@ -49,12 +45,10 @@ class AuthPage extends Block {
                 ref = "${val.ref}"}}}`)).join(' ')}
 
           <div class = "authPageButton">
-            {{{ ButtonAccept value = "Enter" type = "submit" onClick = signIn }}}
+            {{{ ButtonAccept value = "Enter" type = "submit" }}}
             {{{ ButtonAccept value = "Create account" type = "button" onClick = gotoReg }}}
-            
-            
+            {{/FormForSubmit}}
           </div>
-        </form>
         </div>
       </main>
     `
@@ -70,3 +64,5 @@ function mapStateToProps (state: AppState | Indexed): Indexed {
 const withStore = connect(mapStateToProps)
 
 export default withStore(AuthPage)
+
+// <form id = "form" class = "authform" onsubmit = "${this}" >

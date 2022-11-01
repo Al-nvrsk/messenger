@@ -9,7 +9,7 @@ interface chatCardProps {
   onClick: () => void
 }
 
-export default class chatCard extends Block {
+export default class chatCard extends Block<Indexed> {
   static componentName = 'chatCard'
   constructor ({ title, user, id, onClick }: chatCardProps) {
     super({ title, user, id, events: { click: onClick } })

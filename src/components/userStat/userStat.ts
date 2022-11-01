@@ -6,7 +6,7 @@ interface UserStatProps {
   value: string
 }
 
-export default class UserStat extends Block {
+export default class UserStat extends Block<Indexed> {
   static componentName = 'UserStat'
   constructor ({ value, name }: UserStatProps) {
     super({ value, name })

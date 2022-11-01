@@ -9,7 +9,7 @@ const defaultQuery = {
   email: ''
 }
 
-const getUsersFromChat = async (chatId: number, query: Indexed = defaultQuery): Promise<any> => {
+const getUsersFromChat = async (chatId: number, query: Indexed = defaultQuery): Promise<void> => {
   query.id = chatId
   try {
     await chatsApi.getChatUsers(query)

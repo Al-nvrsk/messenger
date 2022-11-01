@@ -13,7 +13,7 @@ interface ControlledInputProps {
   label?: string
 }
 
-export default class ControlledInput extends Block {
+export default class ControlledInput extends Block<Indexed> {
   static componentName = 'ControlledInput'
   constructor (props: ControlledInputProps) {
     super({
@@ -47,9 +47,6 @@ export default class ControlledInput extends Block {
       <div class = "controlledInputLabel">
         {{label}}
       </div>
-        <div class="errorrs">
-      {{{errorBase ref="errorRef" text=error}}}
-      </div>
       <div class="controlledInputField">
       {{{InputBase 
         name = "${this.props.name}"
@@ -63,7 +60,10 @@ export default class ControlledInput extends Block {
         
       }}}
       </div>
-      <hr class = "controlledInputLine" />
+        <hr class = "controlledInputLine" />
+      <div class="errorrs">
+      {{{errorBase ref="errorRef" text=error}}}
+      </div>
       </div>
       </div>
       `

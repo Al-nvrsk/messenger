@@ -4,9 +4,9 @@ import store, { StoreEvents } from '../../store/Store'
 import type { AppState } from 'store/defaultState'
 
 export function connect (mapStateToProps: (state: AppState | Indexed) => Indexed) {
-  return function (Component: typeof Block) {
+  return function (Component: typeof Block<Indexed>) {
     return class extends Component {
-      constructor (props: any) {
+      constructor (props: Indexed) {
         // сохраняем начальное состояние
         let state = mapStateToProps(store.getState())
 

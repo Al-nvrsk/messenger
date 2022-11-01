@@ -4,7 +4,7 @@ import Handlebars from 'handlebars'
 
 type Events = Values<typeof Block.EVENTS>
 
-export default class Block<P = any> {
+export default class Block<P extends Record<string, any>> {
   static componentName: string
   static EVENTS = {
     INIT: 'init',
@@ -16,8 +16,8 @@ export default class Block<P = any> {
   public id = nanoid(6)
 
   protected _element: Nullable<HTMLElement> = null
-  protected readonly props: any
-  protected children: { [id: string]: Block } = {}
+  protected readonly props: P
+  protected children: { [id: string]: Block<{}> } = {}
 
   eventBus: () => EventBus<Events>
 
@@ -26,7 +26,7 @@ export default class Block<P = any> {
   public constructor (props?: P) {
     const eventBus = new EventBus<Events>()
 
-    this.props = this._makePropsProxy(props ?? {})
+    this.props = this._makePropsProxy(props ?? {} as P)
 
     this.eventBus = () => eventBus
 
@@ -110,7 +110,7 @@ export default class Block<P = any> {
     return this.element!
   }
 
-  private _makePropsProxy (props: any): any {
+  private _makePropsProxy (props: P): P {
     const self = this
 
     return new Proxy(props as unknown as object, {

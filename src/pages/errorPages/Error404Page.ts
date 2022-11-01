@@ -2,7 +2,7 @@ import { router } from '../../index'
 import Block from '../../utils/Block'
 import './errorPage.css'
 
-export default class Error404Page extends Block {
+export default class Error404Page extends Block<Indexed> {
   static componentName = 'Error404Page'
   constructor () {
     super()

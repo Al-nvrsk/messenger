@@ -11,7 +11,7 @@ interface messageCardProps {
 
 }
 
-export default class messageCard extends Block {
+export default class messageCard extends Block<Indexed> {
   static componentName = 'messageCard'
   constructor ({ content, id, userId, ownMessage }: messageCardProps) {
     super({ content, id, userId, ownMessage })
@@ -21,7 +21,7 @@ export default class messageCard extends Block {
     return `
       <div class = "messageCard" > 
         <div class = "messageUser">
-          {{userId}}
+          {{userId}}:
         </div>
         <div class = "messageTitle" >
           <span> {{id}} </span>

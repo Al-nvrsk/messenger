@@ -6,7 +6,7 @@ interface NavigationProps {
   address: string
 }
 
-export default class Navigation extends Block {
+export default class Navigation extends Block<Indexed> {
   static componentName = 'Navigation'
   constructor (props: NavigationProps) {
     const onClick = (e: MouseEvent): void => {

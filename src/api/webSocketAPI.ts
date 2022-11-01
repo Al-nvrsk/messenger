@@ -1,8 +1,8 @@
-import HTTPTransport from 'utils/HTTPTransport'
-import { BaseAPI } from './baseAPI'
+import { HTTPTransport } from 'utils/HTTPTransport'
+import { BaseAPI, BASE_URL } from './baseAPI'
 
 const chatAPIInstance = new HTTPTransport()
-const url = 'https://ya-praktikum.tech/api/v2'
+const url = BASE_URL
 
 class WebSocketAPI extends BaseAPI {
   async getToken (id: string): Promise<Indexed> {

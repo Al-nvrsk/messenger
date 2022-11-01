@@ -6,7 +6,7 @@ interface ButtonChangeProps {
   onClick: () => void
 }
 
-export default class ButtonChange extends Block {
+export default class ButtonChange extends Block<Indexed> {
   static componentName = 'ButtonChange'
   constructor ({ value, onClick }: ButtonChangeProps) {
     super({ value, events: { click: onClick } })

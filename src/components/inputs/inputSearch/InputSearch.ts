@@ -11,7 +11,7 @@ interface InputSearchProps {
   description?: string
 }
 
-export default class InputSearch extends Block {
+export default class InputSearch extends Block<Indexed> {
   static componentName = 'InputSearch'
   constructor ({ onChange = () => {}, type = 'text', error, placeholder, value, name, description }: InputSearchProps) {
     super({ type, placeholder, value, name, error, description, events: { input: onChange } })
@@ -24,7 +24,7 @@ export default class InputSearch extends Block {
           <b> {{description}} </b>
         </label>
         <input class = "inputAuthInput" name = {{name}} type = {{type}} placeholder = {{name}} required />
-        <hr> 
+        <hr class = "inputAuthHr"> 
       </div>
     `
   }

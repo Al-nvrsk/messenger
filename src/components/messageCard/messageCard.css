@@ -19,5 +19,6 @@
 
 .messageUser {
   display: flex;
+  color: var(--font-hover);
   margin: 5px;
 }

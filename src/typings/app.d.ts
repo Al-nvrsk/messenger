@@ -10,7 +10,7 @@ declare global {
     login: string
     firstName: string
     secondName: string
-    displayName: string
+    display_name: string
     avatar: string
     phone: string
     email: string

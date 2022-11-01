@@ -1,6 +1,6 @@
 import set from 'utils/helper/set'
 import EventBus from 'utils/EventBus'
-import { defaultState } from './defaultState'
+import { AppState, defaultState } from './defaultState'
 
 export enum StoreEvents {
   Updated = 'updated',
@@ -8,9 +8,9 @@ export enum StoreEvents {
 }
 
 class Store extends EventBus {
-  private readonly state: Indexed = defaultState
+  private readonly state: AppState = defaultState
 
-  public getState (): Indexed {
+  public getState (): AppState {
     return this.state
   }
 

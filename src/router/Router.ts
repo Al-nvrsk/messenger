@@ -32,7 +32,7 @@ export default class Router implements CoreRouter {
   private isStarted = false
 
   use (pathname: string, block: any): this {
-    const route = new Route(pathname, block, { rootQuery: this._rootQuery })
+    const route = new Route(pathname, block)
     this.routes.push(route)
 
     return this
@@ -43,7 +43,7 @@ export default class Router implements CoreRouter {
       this.isStarted = true
     }
 
-    window.onpopstate = (event: PopStateEvent | any) => {
+    window.onpopstate = (event: PopStateEvent | Indexed) => {
       this._onRoute(event.currentTarget?.location.pathname)
     }
 

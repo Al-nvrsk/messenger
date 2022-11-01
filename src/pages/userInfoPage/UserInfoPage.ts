@@ -5,18 +5,26 @@ import { connect } from '../../utils/helper/connect'
 import userInfoPageStatus from 'data/userInfoPageStatus'
 import { router } from '../../index'
 import store from '../../store/Store'
+import { BASE_URL } from '../../api/baseAPI'
 
-class UserInfoPage extends Block {
+interface IncomingProps {
+  user: User
+  isChangeAvatarActive: boolean
+  isChangePasswordActive: boolean
+  isChangeUserInfoActive: boolean
+  isAuth: boolean
+}
+
+class UserInfoPage extends Block<Indexed> {
   static componentName = 'UserInfoPage'
-  constructor (props: any) {
+  constructor (props: IncomingProps) {
     super(props)
     this.setProps({
-      store: store.getState,
+      store: store.getState(),
       gotoBack: () => router.back(),
       changeAvatar: () => store.setState('isChangeAvatarActive', true),
       changePassword: () => store.setState('isChangePasswordActive', true),
       changeUserInfo: () => store.setState('isChangeUserInfoActive', true)
-
     })
   }
 
@@ -27,7 +35,7 @@ class UserInfoPage extends Block {
     } else {
       let path = ''
       if (this.props.user) {
-        path = `https://ya-praktikum.tech/api/v2/resources${this.props.user.avatar}`
+        path = `${BASE_URL}` + `/resources${this.props.user.avatar}`
       }
       return `
       <main>

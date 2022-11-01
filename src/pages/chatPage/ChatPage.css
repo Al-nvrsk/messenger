@@ -79,6 +79,11 @@
   width: 100%;
 }
 
+.inputSubmit {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .inputMessage {
   display: flex;
   color: var(--font-hover);

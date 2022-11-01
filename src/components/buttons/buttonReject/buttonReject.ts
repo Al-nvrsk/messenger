@@ -8,7 +8,7 @@ interface ButtonRejectProps {
   onClick: () => void
 }
 
-export default class ButtonReject extends Block {
+export default class ButtonReject extends Block<Indexed> {
   static componentName = 'ButtonReject'
   constructor ({ value, type, onClick }: ButtonRejectProps) {
     super({ value, type, events: { click: onClick } })

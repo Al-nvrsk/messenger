@@ -1,7 +1,7 @@
 import userOperationAPI from '../../api/userAPI'
 import store from '../../store/Store'
 
-const changeUserAvatar = async (): Promise<any> => {
+const changeUserAvatar = async (): Promise<void> => {
   const myUserForm = document.getElementById('myUserForm') as HTMLFormElement
   const form = new FormData(myUserForm)
   if (form) {

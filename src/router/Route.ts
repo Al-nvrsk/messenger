@@ -1,3 +1,4 @@
+import Block from 'utils/Block'
 import renderDOM from 'utils/renderDOM'
 
 export interface RouteType {
@@ -9,15 +10,13 @@ export interface RouteType {
 
 class Route implements RouteType {
   _pathname: string
-  _blockClass: any
-  _block: any
-  _props?: any
+  _blockClass: Block
+  _block: Indexed | null
 
-  constructor (pathname: string, view: any, props?: any) {
+  constructor (pathname: string, view: Indexed) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
-    this._props = props
   }
 
   navigate (pathname: string): void {

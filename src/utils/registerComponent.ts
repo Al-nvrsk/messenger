@@ -1,33 +1,37 @@
 import Block from './Block'
 import Handlebars, { HelperOptions } from 'handlebars'
 
-interface BlockConstructable<Props = any> {
-  new(props: Props): Block
+interface BlockConstructable<Props extends Record<string, any> = any, IncomingProps = any> {
+  new(props: IncomingProps): Block<Props>
   componentName: string
 }
 
-export default function registerComponent<Props extends any> (Component: BlockConstructable<Props>): void {
-  Handlebars.registerHelper(Component.componentName || Component.name, function (this: Props, { hash: { ref, ...hash }, data, fn }: HelperOptions) {
-    if (!data.root.children) {
-      data.root.children = {}
-    }
+type AnyProps = Record<string, any>
 
-    if (!data.root.refs) {
-      data.root.refs = {}
-    }
+export default function registerComponent<Props extends Record<string, any> = AnyProps, IncomingProps = AnyProps>
+(Component: BlockConstructable<Props, IncomingProps>): void {
+  Handlebars.registerHelper(Component.componentName || Component.name,
+    function (this: Props, { hash: { ref, ...hash }, data, fn }: HelperOptions) {
+      if (!data.root.children) {
+        data.root.children = {}
+      }
 
-    const { children, refs } = data.root
+      if (!data.root.refs) {
+        data.root.refs = {}
+      }
 
-    const component = new Component(hash)
+      const { children, refs } = data.root
 
-    children[component.id] = component
+      const component = new Component(hash)
 
-    if (ref) {
-      refs[ref] = component
-    }
+      children[component.id] = component
 
-    const contents = fn ? fn(this) : ''
+      if (ref) {
+        refs[ref] = component
+      }
 
-    return `<div data-id="${component.id}">${contents}</div>`
-  })
+      const contents = fn ? fn(this) : ''
+
+      return `<div data-id="${component.id}">${contents}</div>`
+    })
 }

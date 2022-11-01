@@ -18,6 +18,7 @@ import modalChangeAvatar from 'components/modalsWindow/modalChangeAvatar/modalCh
 import modalChangePassword from 'components/modalsWindow/modalChangePassword/modalChangePassword'
 import modalChangeUserInfo from 'components/modalsWindow/modalChangeUserInfo/modalChangeUserInfo'
 import messageCard from 'components/messageCard/messageCard'
+import FormForSubmit from 'components/form/formForSubmit'
 
 // Pages
 import AuthPage from 'pages/authPage/authPage'
@@ -42,6 +43,7 @@ registerComponent(modalChangeAvatar)
 registerComponent(modalChangePassword)
 registerComponent(modalChangeUserInfo)
 registerComponent(messageCard)
+registerComponent(FormForSubmit)
 
 export const router = new Router('.app')
 

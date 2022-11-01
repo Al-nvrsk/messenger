@@ -6,7 +6,7 @@ function connectWS (): WebSocket {
   const token = store.getState().token
   const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${chatId}/${token}`)
 
-  let timerId: number | any = 0
+  let timerId: number | NodeJS.Timeout = 0
 
   function keepAlive (): void {
     const timeout = 20000
@@ -20,7 +20,7 @@ function connectWS (): WebSocket {
     console.log('Соединение установлено')
     keepAlive()
     store.setState('currentChatMessages', [])
-    store.getState().socket.send(JSON.stringify({
+    store.getState().socket?.send(JSON.stringify({
       content: '0',
       type: 'get old'
     }))
@@ -37,13 +37,17 @@ function connectWS (): WebSocket {
   })
 
   socket.addEventListener('message', event => {
-    console.log('Получены данные', event.data)
-    let message = JSON.parse(event.data)
-    if (!Array.isArray(message)) {
-      message = [message]
+    try {
+      console.log('Получены данные', event.data)
+      let message = JSON.parse(event.data)
+      if (!Array.isArray(message)) {
+        message = [message]
+      }
+      const filtered = message.filter((message: Indexed) => message.type === 'message')
+      store.setState('currentChatMessages', [...filtered, ...store.getState().currentChatMessages])
+    } catch (err) {
+      console.log(err)
     }
-    const filtered = message.filter((message: Indexed) => message.type === 'message')
-    store.setState('currentChatMessages', [...filtered, ...store.getState().currentChatMessages])
   })
 
   socket.addEventListener('error', event => {

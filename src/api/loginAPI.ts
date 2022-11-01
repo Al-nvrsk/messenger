@@ -1,18 +1,18 @@
-import HTTPTransport from 'utils/HTTPTransport'
-import { BaseAPI } from './baseAPI'
+import { HTTPTransport, headerJson } from 'utils/HTTPTransport'
+import { BaseAPI, BASE_URL } from './baseAPI'
 
 const authAPIInstance = new HTTPTransport()
-const url = 'https://ya-praktikum.tech/api/v2'
+const url = BASE_URL
 
 class LoginAPI extends BaseAPI {
   async create (user: string): Promise<object> {
     return await authAPIInstance.post(`${url}` + '/auth/signup',
-      { data: user, headers: { 'Content-type': 'application/json' } })
+      { data: user, headers: headerJson })
   }
 
   async auth (user: string): Promise<object> {
     return await authAPIInstance.post(`${url}` + '/auth/signin',
-      { data: user, headers: { 'Content-type': 'application/json' } })
+      { data: user, headers: headerJson })
   }
 
   async request (): Promise<object> {

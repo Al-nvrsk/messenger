@@ -1,6 +1,6 @@
 .controlledInput {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   box-sizing: border-box;
   margin: 10 auto;
   text-align: center;
@@ -40,5 +40,8 @@
 
 .controlledInputLine {
   border-color: var(--separate-line);
-  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+  box-sizing: border-box;
 }

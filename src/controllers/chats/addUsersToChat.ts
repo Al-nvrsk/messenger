@@ -1,7 +1,7 @@
 import chatsApi from '../../api/chatAPI'
 import store from '../../store/Store'
 
-const addUsersToChat = async (): Promise<any> => {
+const addUsersToChat = async (): Promise<void> => {
   const users = prompt('Input userId for add to chat')
   const userArr = users?.split(',')
   userArr?.map(user => user.trim())

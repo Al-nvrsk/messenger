@@ -6,7 +6,7 @@ const sendMessage = async (message: string): Promise<void> => {
     type: 'message'
   }
   try {
-    store.getState().socket.send(JSON.stringify(query))
+    store.getState().socket?.send(JSON.stringify(query))
   } catch (err) {
     console.log(err)
   }

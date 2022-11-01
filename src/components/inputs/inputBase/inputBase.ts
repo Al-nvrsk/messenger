@@ -14,7 +14,7 @@ interface InputBaseProps {
   ref?: string
 }
 
-export default class InputBase extends Block {
+export default class InputBase extends Block<Indexed> {
   static componentName = 'InputBase'
   constructor ({ onBlur, onFocus, onInput, ...props }: InputBaseProps) {
     super({ ...props, events: { focus: onFocus, blur: onBlur, input: onInput } })

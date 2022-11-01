@@ -7,15 +7,17 @@ export interface AppState {
   isChangeUserInfoActive: boolean
   currentChatId: number
   currentChatTitle: string
+  currentChatUsers: User[]
   loginFormError: string | null
-  token: any
+  token: string
   currentChatMessages: object[]
   user: {
     id: number | null
   }
   chats: object[] | null
-  getState?: () => any
+  getState?: () => Indexed
   setState?: () => void
+  socket: WebSocket | null
 }
 
 export const defaultState: AppState = {
@@ -27,11 +29,13 @@ export const defaultState: AppState = {
   isChangeAvatarActive: false,
   isChangePasswordActive: false,
   isChangeUserInfoActive: false,
+  currentChatUsers: [],
   loginFormError: null,
   token: '',
   currentChatMessages: [],
   user: {
     id: null
   },
-  chats: null
+  chats: null,
+  socket: null
 }
