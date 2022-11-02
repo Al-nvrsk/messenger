@@ -1,8 +1,12 @@
 import validateForm from './validateForm'
 
-export default function submitForm (): void {
-  const user = {}
-  const fields = document.querySelectorAll('input')
+export default function submitForm (filter: boolean = false): void | object {
+  const user: Record <string, string> = {}
+  let fields: NodeListOf<HTMLInputElement> | HTMLInputElement[] = document.querySelectorAll('input')
+  if (filter) {
+    const arr = Array.from(fields)
+    fields = arr.filter((value) => !value.name.includes('assword'))
+  }
   for (let i = 0; i < fields.length; i++) {
     const fieldname = fields[i].name
     const fieldvalue = fields[i].value
@@ -10,8 +14,11 @@ export default function submitForm (): void {
       { type: fieldname, value: fieldvalue }
     )
     if (errorMessage) {
-      return alert('You have problem with input information. Please check fields info. The empty fields not allowed')
-    } else { user[fieldname] = fieldvalue }
+      alert('You have problem with input information. Please check fields info. The empty fields not allowed')
+      throw new Error(errorMessage)
+    } else {
+      user[fieldname] = fieldvalue
+    }
   }
-  return console.log(user)
+  return user
 }

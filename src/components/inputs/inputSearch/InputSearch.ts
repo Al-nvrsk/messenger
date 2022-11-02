@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './inputSearch.css'
 
 interface InputSearchProps {
@@ -12,7 +11,7 @@ interface InputSearchProps {
   description?: string
 }
 
-export default class InputSearch extends Block {
+export default class InputSearch extends Block<Indexed> {
   static componentName = 'InputSearch'
   constructor ({ onChange = () => {}, type = 'text', error, placeholder, value, name, description }: InputSearchProps) {
     super({ type, placeholder, value, name, error, description, events: { input: onChange } })
@@ -21,11 +20,11 @@ export default class InputSearch extends Block {
   protected render (): string {
     return `
       <div class = "inputAuth">
-        <label for = {{name}}>
+        <label class = "inputAuthLabel" for = {{name}}>
           <b> {{description}} </b>
         </label>
-        <input name = {{name}} type = {{type}} placeholder = {{name}} required />
-        <hr> 
+        <input class = "inputAuthInput" name = {{name}} type = {{type}} placeholder = {{name}} required />
+        <hr class = "inputAuthHr"> 
       </div>
     `
   }

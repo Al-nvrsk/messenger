@@ -12,7 +12,7 @@
   margin-top: 5px;
 }
 
-.inputAuth label {
+.inputAuthLabel {
   display: flex;
   text-align: center;
   margin-left: 10%;
@@ -23,10 +23,10 @@
   margin-top: 5px;
 }
 
-.inputAuth input {
+.inputAuthInput {
   display: flex;
-  margin: 0 auto;
-  width: 80%;
+  margin: 0;
+  width: 90%;
   height: 45px;
   background-color: var(--main-background);
   font-size: 18px;
@@ -41,7 +41,7 @@ input:focus {
   font-weight: bold;
 }
 
-.inputAuth hr {
+.inputAuthHr {
   border-color: var(--separate-line);
-  width: 80%;
+  width: 90%;
 }

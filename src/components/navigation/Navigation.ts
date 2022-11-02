@@ -3,10 +3,10 @@ import './tempNavigation.css'
 
 interface NavigationProps {
   value: string
-  adress: string
+  address: string
 }
 
-export default class Navigation extends Block {
+export default class Navigation extends Block<Indexed> {
   static componentName = 'Navigation'
   constructor (props: NavigationProps) {
     const onClick = (e: MouseEvent): void => {
@@ -18,7 +18,7 @@ export default class Navigation extends Block {
 
   render (): string {
     return `
-      <a class = "tempNavigation" href = {{adress}}> {{value}} </a>
+      <a class = "tempNavigation" href = {{address}}> {{value}} </a>
     `
   }
 }

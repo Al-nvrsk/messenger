@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './buttonChange.css'
 
 interface ButtonChangeProps {
@@ -7,7 +6,7 @@ interface ButtonChangeProps {
   onClick: () => void
 }
 
-export default class ButtonChange extends Block {
+export default class ButtonChange extends Block<Indexed> {
   static componentName = 'ButtonChange'
   constructor ({ value, onClick }: ButtonChangeProps) {
     super({ value, events: { click: onClick } })
@@ -15,7 +14,7 @@ export default class ButtonChange extends Block {
 
   protected render (): string {
     return `
-      <button class = "buttonChange" type = "button"> Change {{value}} </button>
+      <button class = "buttonChange" type = "button"> {{value}} </button>
     `
   }
 }

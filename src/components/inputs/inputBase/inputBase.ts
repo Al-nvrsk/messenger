@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './inputBase.css'
 
 interface InputBaseProps {
@@ -12,9 +11,10 @@ interface InputBaseProps {
   value?: string
   name: string
   description: string
+  ref?: string
 }
 
-export default class InputBase extends Block {
+export default class InputBase extends Block<Indexed> {
   static componentName = 'InputBase'
   constructor ({ onBlur, onFocus, onInput, ...props }: InputBaseProps) {
     super({ ...props, events: { focus: onFocus, blur: onBlur, input: onInput } })
@@ -22,7 +22,7 @@ export default class InputBase extends Block {
 
   protected render (): string {
     return `
-      <input name = "{{name}}" class = "inputBase" type = {{type}} placeholder = "{{placeholder}}" />
+      <input name = "{{name}}" class = "inputBase" type = {{type}} placeholder = "{{placeholder}}" value = "{{value}}" ref = "{{ref}}" />
     `
   }
 }

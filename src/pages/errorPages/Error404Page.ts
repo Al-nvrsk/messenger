@@ -1,14 +1,26 @@
+import { router } from '../../index'
 import Block from '../../utils/Block'
 import './errorPage.css'
 
-export default class Error404Page extends Block {
+export default class Error404Page extends Block<Indexed> {
   static componentName = 'Error404Page'
+  constructor () {
+    super()
+    this.setProps({
+      gotoMain: () => this.gotoMain()
+    })
+  }
+
+  gotoMain (): void {
+    router.go('/auth')
+  }
+
   render (): string {
     return `
       <div class = "errorPage">
         <h1> Error 404 </h1>
         <div> The page is absent </div>
-        {{{ Navigation adress = "./index.hbs" value ="Go to Content list"}}}
+        {{{ ButtonAccept value = "go to Main" type = "button" onClick = gotoMain }}}
       </div>
     `
   }

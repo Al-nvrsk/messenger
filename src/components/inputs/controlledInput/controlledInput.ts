@@ -13,7 +13,7 @@ interface ControlledInputProps {
   label?: string
 }
 
-export default class ControlledInput extends Block {
+export default class ControlledInput extends Block<Indexed> {
   static componentName = 'ControlledInput'
   constructor (props: ControlledInputProps) {
     super({
@@ -28,7 +28,7 @@ export default class ControlledInput extends Block {
 
         this.refs.errorRef.setProps({ text: errorMessage })
       },
-      onInput: (e): void => {
+      onInput: (e: Event): void => {
         if (this.refs.errorRef.props.text) {
           const inputEl = e.target as HTMLInputElement
           const errorMessage = validateForm(
@@ -45,10 +45,7 @@ export default class ControlledInput extends Block {
     <div>
       <div class="controlledInput">
       <div class = "controlledInputLabel">
-        {{label}}:
-      </div>
-        <div class="errorrs">
-      {{{errorBase ref="errorRef" text=error}}}
+        {{label}}
       </div>
       <div class="controlledInputField">
       {{{InputBase 
@@ -58,12 +55,15 @@ export default class ControlledInput extends Block {
         onFocus = onFocus
         onInput = onInput
         onBlur = onBlur
-        value = "${this.props.inputValue}"
+        value = "${this.props.value}"
         ref = "{{ref}}"
         
       }}}
       </div>
-      <hr class = "controlledInputLine" />
+        <hr class = "controlledInputLine" />
+      <div class="errorrs">
+      {{{errorBase ref="errorRef" text=error}}}
+      </div>
       </div>
       </div>
       `

@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './buttonAccept.css'
 
 interface ButtonAcceptProps {
@@ -9,7 +8,7 @@ interface ButtonAcceptProps {
   onClick: () => void
 }
 
-export default class ButtonAccept extends Block {
+export default class ButtonAccept extends Block<Indexed> {
   static componentName = 'ButtonAccept'
   constructor ({ value, type, onClick }: ButtonAcceptProps) {
     super({ value, type, events: { click: onClick } })

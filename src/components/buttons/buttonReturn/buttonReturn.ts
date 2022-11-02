@@ -1,5 +1,4 @@
 import Block from 'utils/Block'
-
 import './buttonReturn.css'
 
 interface ButtonReturnProps {
@@ -8,7 +7,7 @@ interface ButtonReturnProps {
   onClick: () => void
 }
 
-export default class ButtonReturn extends Block {
+export default class ButtonReturn extends Block<Indexed> {
   static componentName = 'ButtonReturn'
   constructor ({ value, onClick }: ButtonReturnProps) {
     super({ value, events: { click: onClick } })

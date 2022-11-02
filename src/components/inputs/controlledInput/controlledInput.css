@@ -4,12 +4,13 @@
   box-sizing: border-box;
   margin: 10 auto;
   text-align: center;
-  margin-left: 10%;
   color: var(--font-addition-noactive);
   padding: 5px 0 0;
   font-size: 20px;
   font-weight: 600;
   margin-top: 5px;
+  height: auto;
+  width: 85%;
 }
 
 .controlledInputLabel {
@@ -37,11 +38,10 @@
   box-sizing: border-box;
 }
 
-.controlledInputField:focus {
-  font-weight: bold;
-}
-
 .controlledInputLine {
   border-color: var(--separate-line);
+  display: flex;
+  margin: 0 auto;
   width: 80%;
+  box-sizing: border-box;
 }

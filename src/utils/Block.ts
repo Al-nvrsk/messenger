@@ -4,7 +4,7 @@ import Handlebars from 'handlebars'
 
 type Events = Values<typeof Block.EVENTS>
 
-export default class Block<P = any> {
+export default class Block<P extends Record<string, any>> {
   static componentName: string
   static EVENTS = {
     INIT: 'init',
@@ -16,8 +16,8 @@ export default class Block<P = any> {
   public id = nanoid(6)
 
   protected _element: Nullable<HTMLElement> = null
-  protected readonly props: any
-  protected children: { [id: string]: Block } = {}
+  protected readonly props: P
+  protected children: { [id: string]: Block<{}> } = {}
 
   eventBus: () => EventBus<Events>
 
@@ -26,7 +26,7 @@ export default class Block<P = any> {
   public constructor (props?: P) {
     const eventBus = new EventBus<Events>()
 
-    this.props = this._makePropsProxy(props ?? {})
+    this.props = this._makePropsProxy(props ?? {} as P)
 
     this.eventBus = () => eventBus
 
@@ -35,14 +35,14 @@ export default class Block<P = any> {
     eventBus.emit(Block.EVENTS.INIT, this.props)
   }
 
-  _registerEvents (eventBus: EventBus<Events>): void {
+  private _registerEvents (eventBus: EventBus<Events>): void {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this))
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this))
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this))
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this))
   }
 
-  _createResources (): void {
+  private _createResources (): void {
     this._element = this._createDocumentElement('div')
   }
 
@@ -51,14 +51,14 @@ export default class Block<P = any> {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER, this.props)
   }
 
-  _componentDidMount (props: P): void {
+  private _componentDidMount (props: P): void {
     this.componentDidMount(props)
   }
 
   componentDidMount (_props: P): void {
   }
 
-  _componentDidUpdate (oldProps: P, newProps: P): void {
+  private _componentDidUpdate (oldProps: P, newProps: P): void {
     const response = this.componentDidUpdate(oldProps, newProps)
     if (!response) {
       return
@@ -82,7 +82,7 @@ export default class Block<P = any> {
     return this._element
   }
 
-  _render (): void {
+  private _render (): void {
     const fragment = this._compile()
 
     this._removeEvents()
@@ -110,7 +110,7 @@ export default class Block<P = any> {
     return this.element!
   }
 
-  _makePropsProxy (props: any): any {
+  private _makePropsProxy (props: P): P {
     const self = this
 
     return new Proxy(props as unknown as object, {
@@ -130,11 +130,11 @@ export default class Block<P = any> {
     }) as unknown as P
   }
 
-  _createDocumentElement (tagName: string): HTMLElement {
+  private _createDocumentElement (tagName: string): HTMLElement {
     return document.createElement(tagName)
   }
 
-  _removeEvents (): void {
+  private _removeEvents (): void {
     const events: Record<string, () => void> = (this.props).events
 
     if (!events || (this._element == null)) {
@@ -146,7 +146,7 @@ export default class Block<P = any> {
     })
   }
 
-  _addEvents (): void {
+  private _addEvents (): void {
     const events: Record<string, () => void> = (this.props).events
 
     if (!events) {
@@ -158,7 +158,7 @@ export default class Block<P = any> {
     })
   }
 
-  _compile (): DocumentFragment {
+  private _compile (): DocumentFragment {
     const fragment = document.createElement('template')
 
     const template = Handlebars.compile(this.render())
@@ -176,10 +176,11 @@ export default class Block<P = any> {
       const content = component.getContent()
       stub.replaceWith(content)
 
-      const layoutContent = content.querySelector('[data-layout="1"]')
+      const slotContent = content.querySelector('[data-slot="1"]') as HTMLDivElement
 
-      if ((layoutContent != null) && stubChilds.length) {
-        layoutContent.append(...stubChilds)
+      if (slotContent && stubChilds.length) {
+        slotContent.append(...stubChilds)
+        delete slotContent.dataset.slot
       }
     })
 

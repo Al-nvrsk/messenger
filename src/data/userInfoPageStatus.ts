@@ -4,12 +4,12 @@ interface userInfoPageStatusType {
 }
 
 const userInfoPageStatus: userInfoPageStatusType[] = [
-  { name: 'Email', value: 'test@text.ru' },
-  { name: 'Fist_Name', value: 'Tinki' },
-  { name: 'Second_Name', value: 'Vinki' },
-  { name: 'Display_name', value: 'Mr.Po' },
-  { name: 'Login', value: 'Dipsy' },
-  { name: 'Phone number', value: '5-555-55-55' }
+  { name: 'email', value: 'test@text.ru' },
+  { name: 'fist_name', value: 'Tinki' },
+  { name: 'second_name', value: 'Vinki' },
+  { name: 'display_name', value: 'Mr.Po' },
+  { name: 'login', value: 'Dipsy' },
+  { name: 'phone', value: '5-555-55-55' }
 ]
 
 export default userInfoPageStatus

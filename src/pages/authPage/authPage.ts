@@ -1,26 +1,38 @@
 import Block from '../../utils/Block'
 import './authPage.css'
-import submitForm from 'utils/helper/submitForm'
 import userAuth from '../../data/userAuth'
+import userSignInController from '../../controllers/auth/signInUser'
+import { router } from '../../index'
+import { connect } from '../../utils/helper/connect'
+import type { AppState } from 'store/defaultState'
 
-export default class AuthPage extends Block {
+class AuthPage extends Block<Indexed> {
   static componentName = 'AuthPage'
   constructor () {
-    super()
+    super({})
     this.setProps({
-      onClick: (e) => {
+      gotoReg: () => this.gotoReg(),
+      onSubmit: async (e: Event) => {
         e.preventDefault()
-        submitForm()
+        await userSignInController()
       }
     })
   }
 
+  gotoReg (): void {
+    router.go('/registration')
+  }
+
   render (): string {
-    return `
+    if (this.props.isAuth) {
+      router.go('/chat')
+      throw new Error('You have been authorized')
+    } else {
+      return `
       <main>
         <div class = "authwindow">
         <h1> Sign in </h1>
-        <form class = "authform">
+        {{#FormForSubmit onSubmit = onSubmit}}
           ${(userAuth.map(val =>
             `{{{ ControlledInput name = "${val.name}"
                 onFocus=onFocus
@@ -29,16 +41,28 @@ export default class AuthPage extends Block {
                 placeholder = "${val.name}"
                 description = "${val.description}"
                 label = "${val.description}"
+                value = ""
                 ref = "${val.ref}"}}}`)).join(' ')}
 
           <div class = "authPageButton">
-            {{{ ButtonAccept value = "Enter" type = "submit" onClick = onClick }}}
-            {{{ Navigation adress = "./RegistrationPage.html" value = "Create account"}}}
-            {{{ Navigation adress = "./index.hbs" value = "Go to Content list"}}}
+            {{{ ButtonAccept value = "Enter" type = "submit" }}}
+            {{{ ButtonAccept value = "Create account" type = "button" onClick = gotoReg }}}
+            {{/FormForSubmit}}
           </div>
-        </form>
         </div>
       </main>
     `
+    }
   }
 }
+
+function mapStateToProps (state: AppState | Indexed): Indexed {
+  return {
+    state
+  }
+}
+const withStore = connect(mapStateToProps)
+
+export default withStore(AuthPage)
+
+// <form id = "form" class = "authform" onsubmit = "${this}" >

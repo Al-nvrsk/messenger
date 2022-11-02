@@ -13,7 +13,7 @@
 
 .buttonReject:hover {
   background-color: var(--reject-border);
-  border: 2px solid var(--font-inreject);
+  border: 1px solid var(--font-inreject);
   cursor: pointer;
 }
 

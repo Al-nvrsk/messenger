@@ -1,4 +1,8 @@
-enum METHODS {
+import queryStringify from './helper/queryStringify'
+
+type HTTPMethod = (url: string, options?: Options) => Promise<object>
+
+enum Methods {
   GET = 'GET',
   POST = 'POST',
   PUT = 'PUT',
@@ -7,41 +11,35 @@ enum METHODS {
 };
 
 interface Options {
-  method?: METHODS
-  data?: any
+  method?: Methods
+  data?: string | Indexed
   timeout?: number
-  headers?: string
+  headers?: object
 }
 
-function queryStringify (data: object): string {
-  if (typeof data !== 'object') {
-    throw new Error('Data must be object')
-  }
-
-  const keys = Object.keys(data)
-  return keys.reduce((result, key, index) => {
-    return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`
-  }, '?')
-}
+const headerJson = { 'Content-type': 'application/json' }
 
 class HTTPTransport {
-  get = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.GET }, options.timeout)
+  get: HTTPMethod = async (url, options = {}) => {
+    if (options.data && typeof options.data === 'object') {
+      url = `${url}?${queryStringify(options.data)}`
+    }
+    return await this.request(url, { ...options, method: Methods.GET }, options.timeout)
   }
 
-  post = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.POST }, options.timeout)
+  post: HTTPMethod = async (url, options = {}) => {
+    return await this.request(url, { ...options, method: Methods.POST }, options.timeout)
   }
 
-  put = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.PUT }, options.timeout)
+  put: HTTPMethod = async (url, options = {}) => {
+    return await this.request(url, { ...options, method: Methods.PUT }, options.timeout)
   }
 
-  delete = async (url: string, options: Options = {}): Promise<object> => {
-    return await this.request(url, { ...options, method: METHODS.DELETE }, options.timeout)
+  delete: HTTPMethod = async (url, options = {}) => {
+    return await this.request(url, { ...options, method: Methods.DELETE }, options.timeout)
   }
 
-  request = async (url: string, options: Options = {}, timeout = 5000): Promise<object> => {
+  request = async (url: string, options: Options = {}, timeout: number = 5000): Promise<object> => {
     const { headers = {}, method, data } = options
 
     return await new Promise(function (resolve, reject) {
@@ -51,19 +49,16 @@ class HTTPTransport {
       }
 
       const xhr = new XMLHttpRequest()
-      const isGet = method === METHODS.GET
 
       xhr.open(
         method,
-        isGet && !!data
-          ? `${url}${queryStringify(data)}`
-          : url
+        url
       )
 
       Object.keys(headers).forEach(key => {
-        xhr.setRequestHeader(key, headers[key])
+        xhr.setRequestHeader(key, headers[key as keyof object])
       })
-
+      xhr.withCredentials = true
       xhr.onload = function () {
         resolve(xhr)
       }
@@ -74,11 +69,13 @@ class HTTPTransport {
       xhr.timeout = timeout
       xhr.ontimeout = reject
 
-      if (isGet || !data) {
+      if (!data) {
         xhr.send()
       } else {
-        xhr.send(data)
+        xhr.send(data as string)
       }
     })
   }
 }
+
+export { HTTPTransport, headerJson }
