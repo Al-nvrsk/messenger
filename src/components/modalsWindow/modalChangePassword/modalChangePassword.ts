@@ -1,4 +1,4 @@
-import Block from 'utils/Block'
+import Block from '../../../utils/Block'
 import './modalChangePassword.css'
 import store from '../../../store/Store'
 import userChangePasswordController from '../../../controllers/user/changeUserPassword'

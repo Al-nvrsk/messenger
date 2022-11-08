@@ -1,5 +1,5 @@
 import './chatCard.css'
-import Block from 'utils/Block'
+import Block from '../../utils/Block'
 
 interface chatCardProps {
 

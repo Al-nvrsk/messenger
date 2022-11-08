@@ -1,4 +1,4 @@
-import Block from 'utils/Block'
+import Block from '../../../utils/Block'
 import './modalChangeUserInfo.css'
 import userProfileForm from '../../../data/userProfileForm'
 import store from '../../../store/Store'

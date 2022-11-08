@@ -1,5 +1,5 @@
-import set from 'utils/helper/set'
-import EventBus from 'utils/EventBus'
+import set from '../utils/helper/set'
+import EventBus from '../utils/EventBus'
 import { AppState, defaultState } from './defaultState'
 
 export enum StoreEvents {

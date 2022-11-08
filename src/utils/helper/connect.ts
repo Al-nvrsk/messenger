@@ -1,5 +1,5 @@
 import isEqual from './isEqual'
-import Block from 'utils/Block'
+import Block from '../Block'
 import store, { StoreEvents } from '../../store/Store'
 import type { AppState } from 'store/defaultState'
 

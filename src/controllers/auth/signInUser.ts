@@ -1,5 +1,5 @@
 import { router } from '../../index'
-import submitForm from 'utils/helper/submitForm'
+import submitForm from '../../utils/helper/submitForm'
 import loginApi from '../../api/loginAPI'
 import store from '../../store/Store'
 import userGetController from './getOwnUserinfo'

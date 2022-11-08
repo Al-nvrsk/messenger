@@ -20,6 +20,11 @@ declare global {
     [key in string]: T;
   }
 
+  export type Creator<T = any> = {
+    [key in string]: T;
+    constructor: ()=>void
+  }
+
   export interface LoginFormModel {
     login: string
     password: string
@@ -32,6 +37,7 @@ declare global {
   export interface modalWindowType {
     active: boolean
   }
+
 }
 
 export {}

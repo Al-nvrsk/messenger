@@ -2,8 +2,9 @@
   "name": "moddle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "scripts": {
-    "dev": "parcel src/index.html --no-source-maps --no-cache",
+    "dev": "webpack serve --open",
     "build": "parcel build src/index.html",
     "start": "npm run build && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,25 +13,34 @@
     "lint:css": "npx stylelint **/*.css",
     "lint:css:fix": "npx stylelint **/*.css --fix"
   },
+  "browser": {
+    "browser": "dist/handlebars.js"
+  },
   "alias": {
     "data": "./src/data",
     "pages": "./src/pages",
-    "utils": "./src/utils",
+    "Utils": "./src/utils",
     "components": "./src/components"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/body-parser": "1.19.2",
     "express": "4.18.1",
     "nanoid": "4.0.0"
   },
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
     "@babel/core": "7.19.3",
+    "@types/handlebars-webpack-plugin": "2.2.2",
     "@types/node": "18.7.23",
+    "@types/webpack": "5.28.0",
+    "@types/webpack-dev-server": "4.7.2",
     "@typescript-eslint/eslint-plugin": "5.38.1",
+    "babel-plugin-handlebars-inline-precompile": "2.1.1",
     "chai": "4.3.6",
+    "css-loader": "6.7.1",
     "dotenv": "16.0.3",
     "eslint": "8.24.0",
     "eslint-config-airbnb": "19.0.4",
@@ -39,18 +49,24 @@
     "eslint-plugin-n": "15.3.0",
     "eslint-plugin-promise": "6.0.1",
     "handlebars": "4.7.7",
+    "handlebars-loader": "1.7.2",
+    "handlebars-webpack-plugin": "2.2.1",
     "i": "0.3.7",
     "mocha": "10.1.0",
     "npm": "8.19.2",
-    "parcel": "2.7.0",
-    "parcel-plugin-handlebars-precompile": "1.0.2",
     "postcss": "8.4.17",
     "postcss-import": "15.0.0",
     "postcss-preset-env": "6.7.0",
+    "precompile-handlebars": "1.0.5",
+    "style-loader": "3.3.1",
     "stylelint": "14.13.0",
     "stylelint-config-standard": "28.0.0",
+    "ts-loader": "9.4.1",
     "ts-node": "10.9.1",
     "typescript": "4.8.4",
-    "typescript-hbs-plugin": "0.1.1"
+    "typescript-hbs-plugin": "0.1.1",
+    "webpack": "5.74.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.11.1"
   }
 }

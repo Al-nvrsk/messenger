@@ -160,6 +160,8 @@ export default class Block<P extends Record<string, any>> {
 
   private _compile (): DocumentFragment {
     const fragment = document.createElement('template')
+    console.log('HandleBars1', Handlebars)
+    console.log('HandleBars2', Handlebars.compile(this.render()))
 
     const template = Handlebars.compile(this.render())
     fragment.innerHTML = template({ ...this.props, children: this.children, refs: this.refs })

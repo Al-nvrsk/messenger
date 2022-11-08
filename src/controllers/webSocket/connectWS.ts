@@ -6,14 +6,15 @@ function connectWS (): WebSocket {
   const token = store.getState().token
   const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${chatId}/${token}`)
 
-  let timerId: number | NodeJS.Timeout = 0
+  // let timerId: number | NodeJS.Timeout
 
   function keepAlive (): void {
     const timeout = 20000
     if (socket.readyState === socket.OPEN) {
       socket.send(JSON.stringify({ type: 'ping' }))
     }
-    timerId = setTimeout(keepAlive, timeout)
+    //  timerId = setTimeout(keepAlive, timeout)
+    setTimeout(keepAlive, timeout)
   }
 
   socket.addEventListener('open', () => {

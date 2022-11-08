@@ -1,4 +1,4 @@
-import Block from 'utils/Block'
+import Block from '../../../utils/Block'
 import './modalChangeAvatar.css'
 import store from '../../../store/Store'
 import userChangeAvatarController from '../../../controllers/user/changeUserAvatar'
