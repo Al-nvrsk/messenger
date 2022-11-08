@@ -16,7 +16,7 @@ interface IncomingProps {
 }
 
 class UserInfoPage extends Block<Indexed> {
-  static componentName = 'UserInfoPage'
+  static componentName = "UserInfoPage"
   constructor (props: IncomingProps) {
     super(props)
     this.setProps({
