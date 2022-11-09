@@ -12,7 +12,7 @@ module.exports = {
     static: './dist',
     compress: true,
     port: process.env.PORT ?? 3000,
-    disableHostCheck: true,
+    allowedHosts: 'all',
     hot: true,
     open: true
   },
