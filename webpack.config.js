@@ -11,7 +11,7 @@ module.exports = {
   devServer: {
     static: './dist',
     compress: true,
-    port: process.env.PORT || 4000,
+    port: process.env.PORT ?? 4000,
     hot: true,
     open: true
   },
