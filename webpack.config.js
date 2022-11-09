@@ -8,6 +8,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'project-name.bundle.js'
   },
+  devServer: {
+    static: './dist',
+    compress: true,
+    port: process.env.PORT || 4000,
+    hot: true,
+    open: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'My App',
