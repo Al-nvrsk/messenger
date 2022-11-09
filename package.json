@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --open",
-    "build": "parcel build src/index.html",
-    "start": "npm run build && node server.js",
+    "build": "docker build . -t messanger",
+    "start": "npm run build && docker run -p 3000:3000 -d messanger",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:ts": "npx eslint **/*.{ts,tsx}",
     "lint:ts:fix": "npx eslint **/*.{ts,tsx} --fix",
