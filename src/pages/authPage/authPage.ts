@@ -44,7 +44,7 @@ class AuthPage extends Block<Indexed> {
                 value = ""
                 ref = "${val.ref}"}}}`)).join(' ')}
 
-          <div class = "authPageButton">
+          <div data-testid="authPageButton" class = "authPageButton">
             {{{ ButtonAccept value = "Enter" type = "submit" }}}
             {{{ ButtonAccept value = "Create account" type = "button" onClick = gotoReg }}}
             {{/FormForSubmit}}
