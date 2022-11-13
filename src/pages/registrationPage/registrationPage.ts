@@ -1,9 +1,9 @@
-import Block from '../../utils/Block'
+import Block from 'utils/Block'
 import './registrationPage.css'
-import userRegistration from '../../data/userRegistration'
+import userRegistration from 'data/userRegistration'
 import { router } from '../../index'
-import userCreateController from '../../controllers/auth/createUser'
-import store from '../../store/Store'
+import userCreateController from 'controllers/auth/createUser'
+import store from 'store/Store'
 
 export default class RegistrationPage extends Block<Indexed> {
   static componentName = 'RegistrationPage'

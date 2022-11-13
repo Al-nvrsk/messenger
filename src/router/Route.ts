@@ -1,5 +1,5 @@
-import Block from '../utils/Block'
-import renderDOM from '../utils/renderDOM'
+import Block from 'utils/Block'
+import renderDOM from 'utils/renderDOM'
 
 export interface RouteType {
   navigate: (pathname: string) => void
@@ -39,8 +39,6 @@ class Route implements RouteType {
   render (): void {
     this._block = new this._blockClass()
     renderDOM(this._block)
-
-    // this._block.show()
   }
 }
 

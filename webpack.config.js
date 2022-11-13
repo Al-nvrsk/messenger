@@ -26,7 +26,14 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.json'],
     alias: {
-      handlebars: 'handlebars/dist/handlebars.js'
+      handlebars: 'handlebars/dist/handlebars.js',
+      utils: path.resolve(__dirname, 'src/utils'),
+      api: path.resolve(__dirname, 'src/api'),
+      data: path.resolve(__dirname, 'src/data'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      components: path.resolve(__dirname, 'src/components'),
+      store: path.resolve(__dirname, 'src/store'),
+      controllers: path.resolve(__dirname, 'src/controllers')
     }
   },
 

@@ -1,17 +1,17 @@
-import Block from '../../utils/Block'
+import Block from 'utils/Block'
 import './ChatPage.css'
 import { router } from '../../index'
-import createNewChat from '../../controllers/chats/createNewChat'
-import type { AppState } from '../../store/defaultState'
-import { connect } from '../../utils/helper/connect'
-import store from '../../store/Store'
-import chatsAddUsersController from '../../controllers/chats/addUsersToChat'
-import chatGetUsersController from '../../controllers/chats/getUsersFromChat'
-import chatDeleteController from '../../controllers/chats/deleteChat'
-import deleteUserFromChat from '../../controllers/chats/deleteUserFromChat'
-import webSocketController from '../../controllers/webSocket/webSocketController'
-import sendMessage from '../../controllers/webSocket/sendMessage'
-import logout from '../../controllers/auth/logout'
+import createNewChat from 'controllers/chats/createNewChat'
+import type { AppState } from 'store/defaultState'
+import { connect } from 'utils/helper/connect'
+import store from 'store/Store'
+import chatsAddUsersController from 'controllers/chats/addUsersToChat'
+import chatGetUsersController from 'controllers/chats/getUsersFromChat'
+import chatDeleteController from 'controllers/chats/deleteChat'
+import deleteUserFromChat from 'controllers/chats/deleteUserFromChat'
+import webSocketController from 'controllers/webSocket/webSocketController'
+import sendMessage from 'controllers/webSocket/sendMessage'
+import logout from 'controllers/auth/logout'
 
 interface IncomingProps {
   chats: object[] | null
@@ -74,11 +74,11 @@ class ChatPage extends Block<Indexed> {
   }
 
   render (): string {
-    // if (!this.props.isAuth) {
-    //   router.go('/auth')
-    //   throw new Error('You have to be authorized')
-    // } else {
-    return `
+    if (!this.props.isAuth) {
+      router.go('/auth')
+      throw new Error('You have to be authorized')
+    } else {
+      return `
         <main>
           <div class = "ChatPage">
             <div class = "userList" >
@@ -145,8 +145,8 @@ class ChatPage extends Block<Indexed> {
           </div>
         </main>
       `
+    }
   }
-  // }
 }
 
 function mapStateToProps (state: AppState | Indexed): Indexed {

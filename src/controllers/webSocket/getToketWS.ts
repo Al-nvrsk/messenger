@@ -1,5 +1,5 @@
-import webSocketAPI from '../../api/webSocketAPI'
-import store from '../../store/Store'
+import webSocketAPI from 'api/webSocketAPI'
+import store from 'store/Store'
 
 const getTokenWS = async (): Promise<void> => {
   const chatId = store.getState().currentChatId

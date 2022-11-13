@@ -1,5 +1,5 @@
-import chatsApi from '../../api/chatAPI'
-import store from '../../store/Store'
+import chatsApi from 'api/chatAPI'
+import store from 'store/Store'
 import chatsGetController from './getAllChats'
 
 const deleteChat = async (id: number): Promise<void> => {

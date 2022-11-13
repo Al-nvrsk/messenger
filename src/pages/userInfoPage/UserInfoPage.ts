@@ -1,11 +1,11 @@
-import Block from '../../utils/Block'
+import Block from 'utils/Block'
 import './UserInfoPage.css'
-import type { AppState } from '../../store/defaultState'
-import { connect } from '../../utils/helper/connect'
-import userInfoPageStatus from '../../data/userInfoPageStatus'
+import type { AppState } from 'store/defaultState'
+import { connect } from 'utils/helper/connect'
+import userInfoPageStatus from 'data/userInfoPageStatus'
 import { router } from '../../index'
-import store from '../../store/Store'
-import { BASE_URL } from '../../api/baseAPI'
+import store from 'store/Store'
+import { BASE_URL } from 'api/baseAPI'
 
 interface IncomingProps {
   user: User

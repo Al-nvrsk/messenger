@@ -1,8 +1,8 @@
 import Router from './Router'
 import '@testing-library/jest-dom'
-import Block from '../utils/Block'
+import Block from 'utils/Block'
 
-jest.mock('../utils/renderDOM')
+jest.mock('utils/renderDOM')
 
 describe('router', () => {
   it('should go on page registration', () => {

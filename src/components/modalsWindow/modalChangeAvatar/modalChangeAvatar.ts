@@ -1,7 +1,7 @@
-import Block from '../../../utils/Block'
+import Block from 'utils/Block'
 import './modalChangeAvatar.css'
-import store from '../../../store/Store'
-import userChangeAvatarController from '../../../controllers/user/changeUserAvatar'
+import store from 'store/Store'
+import userChangeAvatarController from 'controllers/user/changeUserAvatar'
 
 export default class modalChangeAvatar extends Block<Indexed> {
   static componentName = 'modalChangeAvatar'

@@ -1,5 +1,5 @@
-import userOperationAPI from '../../api/userAPI'
-import store from '../../store/Store'
+import userOperationAPI from 'api/userAPI'
+import store from 'store/Store'
 
 const changeUserAvatar = async (): Promise<void> => {
   const myUserForm = document.getElementById('myUserForm') as HTMLFormElement

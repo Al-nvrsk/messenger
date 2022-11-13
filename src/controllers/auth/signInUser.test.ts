@@ -1,6 +1,6 @@
 import signInUser from './signInUser'
 import '@testing-library/jest-dom'
-import store from '../../store/Store'
+import store from 'store/Store'
 import userGetController from './getOwnUserinfo'
 import chatsGetController from '../chats/getAllChats'
 
@@ -9,9 +9,9 @@ const user = {
   password: '1Q'
 }
 jest.mock('./getOwnUserinfo')
-jest.mock('../../utils/renderDOM')
+jest.mock('utils/renderDOM')
 jest.mock('../chats/getAllChats')
-jest.mock('../../utils/helper/submitForm', () => {
+jest.mock('utils/helper/submitForm', () => {
   return jest.fn(() =>
     () => user
   )

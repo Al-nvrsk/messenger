@@ -1,7 +1,7 @@
 import userGetController from '../auth/getOwnUserinfo'
-import userOperationAPI from '../../api/userAPI'
-import store from '../../store/Store'
-import submitForm from '../../utils/helper/submitForm'
+import userOperationAPI from 'api/userAPI'
+import store from 'store/Store'
+import submitForm from 'utils/helper/submitForm'
 
 const changeUserPassword = async (): Promise<void> => {
   const changedPassword = submitForm()

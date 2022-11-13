@@ -1,5 +1,5 @@
-import chatsApi from '../../api/chatAPI'
-import store from '../../store/Store'
+import chatsApi from 'api/chatAPI'
+import store from 'store/Store'
 import chatGetUsersController from './getUsersFromChat'
 
 const deleteUserFromChat = async (): Promise<void> => {

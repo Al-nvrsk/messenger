@@ -1,4 +1,4 @@
-import chatsApi from '../../api/chatAPI'
+import chatsApi from 'api/chatAPI'
 import chatsGetController from './getAllChats'
 
 const createNewChat = async (): Promise<void> => {
