@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Authpage should render authPage 1`] = `
+<div
+  class="authwindow"
+>
+  
+        
+  <h1>
+     Sign in 
+  </h1>
+  
+
+  <form
+    class="authform"
+  >
+    
+        
+    <div>
+                
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your login
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="login"
+              placeholder="login"
+              ref=""
+              type="text"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+       
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your password
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="password"
+              placeholder="password"
+              ref=""
+              type="password"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+      
+
+          
+      <div
+        class="authPageButton"
+        data-testid="authPageButton"
+      >
+        
+            
+        <button
+          class="buttonAccept"
+          type="submit"
+        >
+           Enter 
+        </button>
+        
+            
+        <button
+          class="buttonAccept"
+          type="button"
+        >
+           Create account 
+        </button>
+        
+
+      </div>
+                
+    </div>
+    
+    
+  </form>
+  
+        
+</div>
+`;

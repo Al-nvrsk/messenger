@@ -1,6 +1,6 @@
 import Block from './Block'
 
-export default function renderDOM (block: Block): void {
+export default function renderDOM (block: Block<Indexed>): void {
   const root = document.querySelector('#app')
 
   root!.innerHTML = ''

@@ -1,5 +1,5 @@
-import { router } from '../../index'
-import Block from '../../utils/Block'
+import { router } from 'router/routerApp'
+import Block from 'utils/Block'
 import './errorPage.css'
 
 export default class Error404Page extends Block<Indexed> {

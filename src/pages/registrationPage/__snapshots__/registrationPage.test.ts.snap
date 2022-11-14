@@ -1,0 +1,404 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/registrationPage should render registrationPage 1`] = `
+<div
+  class="registrationwindow"
+>
+  
+      
+  <h1
+    class="header"
+  >
+     Create new user 
+  </h1>
+  
+
+  <form
+    class="authform"
+  >
+    
+        
+    <div>
+                    
+      
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your First name
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="first_name"
+              placeholder="first_name"
+              ref=""
+              type="text"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+       
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your Second name
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="second_name"
+              placeholder="second_name"
+              ref=""
+              type="text"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+       
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your Login
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="login"
+              placeholder="login"
+              ref=""
+              type="text"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+       
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your email
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="email"
+              placeholder="email"
+              ref=""
+              type="text"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+       
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your password
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="password"
+              placeholder="password"
+              ref=""
+              type="password"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+       
+      <div>
+        
+      
+        <div
+          class="controlledInput"
+        >
+          
+      
+          <div
+            class="controlledInputLabel"
+          >
+            
+        Input your phone number
+      
+          </div>
+          
+      
+          <div
+            class="controlledInputField"
+          >
+            
+      
+            <input
+              class="inputBase"
+              name="phone"
+              placeholder="phone"
+              ref=""
+              type="text"
+              value=""
+            />
+            
+      
+          </div>
+          
+        
+          <hr
+            class="controlledInputLine"
+          />
+          
+      
+          <div
+            class="errorrs"
+          >
+            
+      
+            <div
+              class="errorBase"
+            />
+            
+      
+          </div>
+          
+      
+        </div>
+        
+      
+      </div>
+      
+                    
+      
+      <div
+        class="registrationwindowButton"
+      >
+        
+        
+        <button
+          class="buttonAccept"
+          type="submit"
+        >
+           Registration 
+        </button>
+        
+        
+        <button
+          class="buttonAccept"
+          type="button"
+        >
+           Sign in 
+        </button>
+        
+        
+      </div>
+      
+
+    </div>
+    
+    
+  </form>
+    
+</div>
+`;

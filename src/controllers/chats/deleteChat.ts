@@ -1,6 +1,6 @@
-import chatsApi from '../../api/chatAPI'
-import store from '../../store/Store'
-import chatsGetController from './getAllChats'
+import chatsApi from 'api/chatAPI'
+import store from 'store/Store'
+import getAllChats from './getAllChats'
 
 const deleteChat = async (id: number): Promise<void> => {
   const ready = confirm('Are you sure want delete this chat')
@@ -11,7 +11,7 @@ const deleteChat = async (id: number): Promise<void> => {
     try {
       await chatsApi.deleteChat(JSON.stringify(query))
         .then(() => store.setState('currenChatId', 0))
-        .then(async () => await chatsGetController())
+        .then(async () => await getAllChats())
         .then(() => store.setState('currentChatId', 0))
     } catch (error) {
       console.log(error)

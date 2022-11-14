@@ -1,4 +1,4 @@
-import { HTTPTransport, headerJson } from 'utils/HTTPTransport'
+import { HTTPTransport, headerJson } from '../utils/HTTPTransport'
 import { BaseAPI, BASE_URL } from './baseAPI'
 
 const authAPIInstance = new HTTPTransport()

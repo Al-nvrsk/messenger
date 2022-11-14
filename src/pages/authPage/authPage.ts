@@ -1,9 +1,9 @@
-import Block from '../../utils/Block'
+import Block from 'utils/Block'
 import './authPage.css'
-import userAuth from '../../data/userAuth'
-import userSignInController from '../../controllers/auth/signInUser'
-import { router } from '../../index'
-import { connect } from '../../utils/helper/connect'
+import userAuth from 'data/userAuth'
+import userSignInController from 'controllers/auth/signInUser'
+import { router } from 'router/routerApp'
+import { connect } from 'utils/helper/connect'
 import type { AppState } from 'store/defaultState'
 
 class AuthPage extends Block<Indexed> {
@@ -44,7 +44,7 @@ class AuthPage extends Block<Indexed> {
                 value = ""
                 ref = "${val.ref}"}}}`)).join(' ')}
 
-          <div class = "authPageButton">
+          <div data-testid="authPageButton" class = "authPageButton">
             {{{ ButtonAccept value = "Enter" type = "submit" }}}
             {{{ ButtonAccept value = "Create account" type = "button" onClick = gotoReg }}}
             {{/FormForSubmit}}
@@ -64,5 +64,3 @@ function mapStateToProps (state: AppState | Indexed): Indexed {
 const withStore = connect(mapStateToProps)
 
 export default withStore(AuthPage)
-
-// <form id = "form" class = "authform" onsubmit = "${this}" >

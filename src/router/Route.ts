@@ -10,10 +10,10 @@ export interface RouteType {
 
 class Route implements RouteType {
   _pathname: string
-  _blockClass: Block
-  _block: Indexed | null
+  _blockClass: any
+  _block: any
 
-  constructor (pathname: string, view: Indexed) {
+  constructor (pathname: string, view: Block<Indexed>) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
@@ -39,8 +39,6 @@ class Route implements RouteType {
   render (): void {
     this._block = new this._blockClass()
     renderDOM(this._block)
-
-    // this._block.show()
   }
 }
 

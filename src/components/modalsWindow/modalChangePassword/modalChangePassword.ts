@@ -1,7 +1,7 @@
 import Block from 'utils/Block'
 import './modalChangePassword.css'
-import store from '../../../store/Store'
-import userChangePasswordController from '../../../controllers/user/changeUserPassword'
+import store from 'store/Store'
+import userChangePasswordController from 'controllers/user/changeUserPassword'
 
 export default class modalChangePassword extends Block<Indexed> {
   static componentName = 'modalChangePassword'

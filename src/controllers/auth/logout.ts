@@ -1,6 +1,6 @@
-import loginApi from '../../api/loginAPI'
-import { router } from '../../index'
-import store from '../../store/Store'
+import loginApi from 'api/loginAPI'
+import { router } from 'router/routerApp'
+import store from 'store/Store'
 
 const logout = async (): Promise<void> => {
   await loginApi.logout()

@@ -1,8 +1,8 @@
 import Block from 'utils/Block'
 import './modalChangeUserInfo.css'
-import userProfileForm from '../../../data/userProfileForm'
-import store from '../../../store/Store'
-import userChangeProfileController from '../../../controllers/user/changeUserProfile'
+import userProfileForm from 'data/userProfileForm'
+import store from 'store/Store'
+import userChangeProfileController from 'controllers/user/changeUserProfile'
 
 export default class modalChangeUserInfo extends Block<Indexed> {
   static componentName = 'modalChangeUserInfo'

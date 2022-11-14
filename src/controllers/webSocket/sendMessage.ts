@@ -1,4 +1,4 @@
-import store from '../../store/Store'
+import store from 'store/Store'
 
 const sendMessage = async (message: string): Promise<void> => {
   const query = {

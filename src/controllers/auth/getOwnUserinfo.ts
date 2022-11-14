@@ -1,5 +1,5 @@
-import loginApi from '../../api/loginAPI'
-import store from '../../store/Store'
+import loginApi from 'api/loginAPI'
+import store from 'store/Store'
 
 const getOwnUserinfo = async (): Promise<void> => {
   try {

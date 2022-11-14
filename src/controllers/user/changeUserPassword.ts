@@ -1,6 +1,6 @@
 import userGetController from '../auth/getOwnUserinfo'
-import userOperationAPI from '../../api/userAPI'
-import store from '../../store/Store'
+import userOperationAPI from 'api/userAPI'
+import store from 'store/Store'
 import submitForm from 'utils/helper/submitForm'
 
 const changeUserPassword = async (): Promise<void> => {
@@ -10,6 +10,7 @@ const changeUserPassword = async (): Promise<void> => {
       store.setState('isLoading', true)
       await userOperationAPI.changePassword(JSON.stringify(changedPassword))
         .then(async () => await userGetController())
+        .then(() => store.setState('isLoading', false))
     } catch (err) {
       console.log(err)
     }

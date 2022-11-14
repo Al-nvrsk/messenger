@@ -11,9 +11,7 @@ export interface AppState {
   loginFormError: string | null
   token: string
   currentChatMessages: object[]
-  user: {
-    id: number | null
-  }
+  user: User
   chats: object[] | null
   getState?: () => Indexed
   setState?: () => void
@@ -34,7 +32,14 @@ export const defaultState: AppState = {
   token: '',
   currentChatMessages: [],
   user: {
-    id: null
+    id: 0,
+    login: '',
+    firstName: '',
+    secondName: '',
+    display_name: '',
+    avatar: '',
+    phone: '',
+    email: ''
   },
   chats: null,
   socket: null
