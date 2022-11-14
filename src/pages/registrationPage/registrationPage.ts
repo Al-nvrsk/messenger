@@ -1,7 +1,7 @@
 import Block from 'utils/Block'
 import './registrationPage.css'
 import userRegistration from 'data/userRegistration'
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import userCreateController from 'controllers/auth/createUser'
 import store from 'store/Store'
 

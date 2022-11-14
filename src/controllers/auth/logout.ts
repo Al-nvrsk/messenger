@@ -1,5 +1,5 @@
 import loginApi from 'api/loginAPI'
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import store from 'store/Store'
 
 const logout = async (): Promise<void> => {

@@ -1,5 +1,5 @@
 import loginApi from 'api/loginAPI'
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import store from 'store/Store'
 import submitForm from 'utils/helper/submitForm'
 
@@ -8,7 +8,8 @@ const createUser = async (): Promise<void> => {
   if (userForReg) {
     try {
       store.setState('isLoading', true)
-      await loginApi.create(JSON.stringify(userForReg))
+      const value = JSON.stringify(userForReg)
+      await loginApi.create(value)
         .then(() => router.go('/auth'))
         .then(() => store.setState('isLoading', false))
     } catch (error) {

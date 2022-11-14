@@ -2,7 +2,7 @@ import Block from 'utils/Block'
 import './authPage.css'
 import userAuth from 'data/userAuth'
 import userSignInController from 'controllers/auth/signInUser'
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import { connect } from 'utils/helper/connect'
 import type { AppState } from 'store/defaultState'
 

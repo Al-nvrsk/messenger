@@ -1,15 +1,15 @@
 import signInUser from './signInUser'
 import '@testing-library/jest-dom'
 import store from 'store/Store'
-import userGetController from './getOwnUserinfo'
-import chatsGetController from '../chats/getAllChats'
+import getOwnUserinfo from './getOwnUserinfo'
+import getAllChats from '../chats/getAllChats'
+import { router } from 'router/routerApp'
 
 const user = {
   login: 'User',
   password: '1Q'
 }
 jest.mock('./getOwnUserinfo')
-jest.mock('utils/renderDOM')
 jest.mock('../chats/getAllChats')
 jest.mock('utils/helper/submitForm', () => {
   return jest.fn(() =>
@@ -18,9 +18,11 @@ jest.mock('utils/helper/submitForm', () => {
 })
 describe('signInService', () => {
   test('should run functions chain of Auth', async () => {
+    jest.spyOn(router, 'go').mockImplementationOnce(() => {})
     await signInUser()
     expect(store.getState().isAuth).toEqual(true)
-    expect(userGetController).toHaveBeenCalledTimes(1)
-    expect(chatsGetController).toHaveBeenCalledTimes(1)
+    expect(getOwnUserinfo).toHaveBeenCalledTimes(1)
+    expect(router.go).toHaveBeenCalledTimes(1)
+    expect(getAllChats).toHaveBeenCalledTimes(1)
   })
 })

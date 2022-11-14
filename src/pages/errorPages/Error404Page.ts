@@ -1,4 +1,4 @@
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import Block from 'utils/Block'
 import './errorPage.css'
 

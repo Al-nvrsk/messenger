@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/ChatPage should render ChatPage 1`] = `
+<div
+  class="ChatPage"
+>
+  
+            
+  <div
+    class="userList"
+  >
+    
+              
+    <div
+      class="userListBar"
+    >
+      
+                
+      <button
+        class="buttonChange"
+        type="button"
+      >
+         Create new chat 
+      </button>
+      
+                
+      <button
+        class="buttonChange"
+        type="button"
+      >
+         UserInfo 
+      </button>
+      
+              
+    </div>
+      
+              
+    <div
+      class="inputAuth"
+    >
+      
+        
+      <label
+        class="inputAuthLabel"
+        for="search"
+      >
+        
+          
+        <b>
+            
+        </b>
+        
+        
+      </label>
+      
+        
+      <input
+        class="inputAuthInput"
+        name="search"
+        placeholder="search"
+        required=""
+        type="search"
+      />
+      
+        
+      <hr
+        class="inputAuthHr"
+      />
+       
+      
+    </div>
+    
+              undefined
+            
+  </div>
+  
+            
+  <div
+    class="chatPart"
+  >
+     
+              
+    <div
+      class="logoutButton"
+    >
+      
+                
+      <button
+        class="buttonChange"
+        type="button"
+      >
+         Logout 
+      </button>
+      
+              
+    </div>
+    
+              
+    <div
+      class="emptyField"
+    >
+      
+                  Select Chat for chating...
+                
+    </div>
+    
+            
+  </div>
+  
+          
+</div>
+`;

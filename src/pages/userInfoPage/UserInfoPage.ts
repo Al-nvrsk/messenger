@@ -3,7 +3,7 @@ import './UserInfoPage.css'
 import type { AppState } from 'store/defaultState'
 import { connect } from 'utils/helper/connect'
 import userInfoPageStatus from 'data/userInfoPageStatus'
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import store from 'store/Store'
 import { BASE_URL } from 'api/baseAPI'
 
@@ -38,7 +38,7 @@ class UserInfoPage extends Block<Indexed> {
         path = `${BASE_URL}` + `/resources${this.props.user.avatar}`
       }
       return `
-      <main>
+      <main class = "userInfoPage">
       {{{ modalChangeAvatar active = ${this.props.isChangeAvatarActive} }}}
       {{{ modalChangePassword active = ${this.props.isChangePasswordActive} }}}
       {{{modalChangeUserInfo active = ${this.props.isChangeUserInfoActive}}}}

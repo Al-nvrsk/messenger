@@ -4,7 +4,7 @@ import store from 'store/Store'
 import submitForm from 'utils/helper/submitForm'
 
 const changeUserProfile = async (): Promise<void> => {
-  const changedProfile = submitForm(true)
+  const changedProfile = submitForm()
   if (changedProfile) {
     try {
       store.setState('isLoading', true)
@@ -12,6 +12,7 @@ const changeUserProfile = async (): Promise<void> => {
         .then((data: ResponseData) => data.response &&
           store.setState('user', JSON.parse(data.response)))
         .then(async () => await userGetController())
+        .then(() => store.setState('isLoading', false))
     } catch (error) {
       console.log(error)
     }

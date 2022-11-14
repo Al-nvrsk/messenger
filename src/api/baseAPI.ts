@@ -1,5 +1,7 @@
 export const BASE_URL = 'https://ya-praktikum.tech/api/v2'
 
+export const err = new Error('empty request')
+
 export class BaseAPI {
   async create (_user: string): Promise<object> { throw new Error('Not implemented') }
 

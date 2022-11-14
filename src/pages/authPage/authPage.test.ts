@@ -1,26 +1,24 @@
 import '@testing-library/jest-dom'
 import { getByTestId } from '@testing-library/dom'
 import AuthPage from './authPage'
-import Block from 'utils/Block'
-import registerComponent from 'utils/registerComponent'
-import ButtonAccept from 'components/buttons/buttonAccept/buttonAccept'
+import mockedRenderDOM from 'test/mockedRenderDOM'
 import store from 'store/Store'
+import mockedRegisteredComp from 'test/mockedRegisteredComp'
 
 jest.mock('utils/renderDOM')
 
-function renderBlock (Block: Block<Indexed>): void {
-  registerComponent(ButtonAccept)
-  const el = Block
-  document.body.innerHTML = '<div id="app"></div>'
-  const root = document.querySelector('#app')
-  root!.innerHTML = ''
-  root!.appendChild(el.getContent())
-};
+beforeEach(() => {
+  store.setState('isAuth', true)
+  mockedRegisteredComp()
+  mockedRenderDOM(new AuthPage(store))
+})
 
 describe('pages/Authpage', () => {
+  it('should render authPage', () => {
+    const authPageBody = document.querySelector('.authwindow')
+    expect(authPageBody).toMatchSnapshot()
+  })
   it('should render authPageButton element', () => {
-    renderBlock(new AuthPage(store))
-
     expect(getByTestId(document.body, 'authPageButton')).toBeInTheDocument()
   })
 })

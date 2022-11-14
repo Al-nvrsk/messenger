@@ -28,9 +28,8 @@
     "exclude":[
     "dist",
     "node_modules",
-    "__tests__",
-    "src/test"
-],
+    "__tests__"
+], 
 "http.proxy": "http://username:password@hostname:port/",
 "http.proxyAuthorization": null,
 "http.proxyStrictSSL": true

@@ -10,6 +10,7 @@ const changeUserPassword = async (): Promise<void> => {
       store.setState('isLoading', true)
       await userOperationAPI.changePassword(JSON.stringify(changedPassword))
         .then(async () => await userGetController())
+        .then(() => store.setState('isLoading', false))
     } catch (err) {
       console.log(err)
     }

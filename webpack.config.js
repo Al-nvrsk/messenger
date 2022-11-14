@@ -33,7 +33,8 @@ module.exports = {
       pages: path.resolve(__dirname, 'src/pages'),
       components: path.resolve(__dirname, 'src/components'),
       store: path.resolve(__dirname, 'src/store'),
-      controllers: path.resolve(__dirname, 'src/controllers')
+      controllers: path.resolve(__dirname, 'src/controllers'),
+      router: path.resolve(__dirname, 'src/router')
     }
   },
 

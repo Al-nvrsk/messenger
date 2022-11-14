@@ -1,5 +1,5 @@
 import chatsApi from 'api/chatAPI'
-import chatsGetController from './getAllChats'
+import getAllChats from './getAllChats'
 
 const createNewChat = async (): Promise<void> => {
   const newChatName = prompt('Input chat name')
@@ -9,7 +9,7 @@ const createNewChat = async (): Promise<void> => {
         title: newChatName
       }
       await chatsApi.createChats(JSON.stringify(message))
-        .then(async () => await chatsGetController())
+        .then(async () => await getAllChats())
     } catch (error) {
       console.log(error)
     }

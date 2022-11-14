@@ -1,6 +1,6 @@
 import Block from 'utils/Block'
 import './ChatPage.css'
-import { router } from '../../index'
+import { router } from 'router/routerApp'
 import createNewChat from 'controllers/chats/createNewChat'
 import type { AppState } from 'store/defaultState'
 import { connect } from 'utils/helper/connect'
