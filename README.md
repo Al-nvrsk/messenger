@@ -26,3 +26,5 @@ and also on https://practicummessanger.herokuapp.com/
 
 <img src="./src/assets/attention.png" alt="Attention"/>
  postcss-preset-env - added to project for netlify build. There are problems with variables in css during netlify build process without it.
+
+This line add for test integration with lianer
